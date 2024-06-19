@@ -1,0 +1,707 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>EXTRA - ordinario a procesos para la ingeniería de software</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9b71b0df-a4be-4958-a701-931d6293befe" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📝</span></div><h1 class="page-title">EXTRA - ordinario a procesos para la ingeniería de software</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Fecha</th><td><time>@18 de junio de 2024 10:55</time></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Asignatura</th><td><span class="selected-value select-value-color-orange">procesos</span></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCheckbox"><path d="M3.85742 14.4561H12.1357C13.6123 14.4561 14.3779 13.6904 14.3779 12.2344V3.91504C14.3779 2.45215 13.6123 1.69336 12.1357 1.69336H3.85742C2.38086 1.69336 1.61523 2.45215 1.61523 3.91504V12.2344C1.61523 13.6973 2.38086 14.4561 3.85742 14.4561ZM3.93945 13.1162C3.30371 13.1162 2.95508 12.7812 2.95508 12.1182V4.02441C2.95508 3.36133 3.30371 3.0332 3.93945 3.0332H12.0537C12.6826 3.0332 13.0381 3.36133 13.0381 4.02441V12.1182C13.0381 12.7812 12.6826 13.1162 12.0537 13.1162H3.93945ZM7.26855 11.3115C7.51465 11.3115 7.72656 11.1885 7.87012 10.9697L10.9258 6.19141C11.0146 6.04785 11.0967 5.88379 11.0967 5.72656C11.0967 5.3916 10.7959 5.16602 10.4746 5.16602C10.2695 5.16602 10.085 5.27539 9.94141 5.50781L7.24121 9.8418L5.96973 8.22168C5.80566 8.00977 5.6416 7.93457 5.43652 7.93457C5.10156 7.93457 4.8418 8.20117 4.8418 8.54297C4.8418 8.70703 4.90332 8.85742 5.01953 9.00098L6.63281 10.9697C6.81738 11.209 7.01562 11.3115 7.26855 11.3115Z"></path></svg></span>Revisado</th><td><div class="checkbox checkbox-off"></div></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedBy"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 10.4229C6.05176 10.4229 4.54785 11.1133 3.83008 11.9131C2.90039 10.9082 2.33301 9.55469 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 9.55469 13.1064 10.9082 12.1699 11.9131C11.4521 11.1133 9.94824 10.4229 8 10.4229ZM8 9.30176C9.32617 9.30859 10.3516 8.18066 10.3516 6.71094C10.3516 5.33008 9.31934 4.18164 8 4.18164C6.6875 4.18164 5.6416 5.33008 5.64844 6.71094C5.65527 8.18066 6.68066 9.28809 8 9.30176Z"></path></svg></span>Creado por</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/ACg8ocKPOenk2DI9_HXBnN7G9SfU30IgCOxIvkZharQG-__8OOE=s100" class="icon user-icon"/>Gerly Daniel Arteaga Bernal</span></td></tr></tbody></table></header><div class="page-body"><h1 id="0de22a3e-7311-4161-88e7-ba2de646932d" class="">Primer parcial:</h1><h2 id="a1611cfc-b1c6-41df-97d9-22aa1efae2e5" class="">3 Clasificación de los dominios de los sistemas</h2><p id="c80f5413-8e24-4f09-90e2-6f4d6ad479c4" class="">Según pressman, actualmente son 7 categorías que plantean retos continuos a los ingenieros de software: </p><h3 id="466311da-e779-4597-a7cc-f5fb35f7010b" class="">Software de sistemas: </h3><p id="c4ab705f-e119-427e-ba26-fcdf10eb3951" class="">Conjunto de programas escritos para dar servicio a otros programas, compiladores, editores, y herramientas para administrar archivos, procesa estructuras de información complejas pero deterministas, componentes de sistemas operativos, manejadores, software de redes, procesadores de telecomunicaciones, esta área se caracteriza por la gran interacción con el  hardware de la computadora. </p><h3 id="0d4958f9-2e10-4c19-ac5a-2e27d695b1cf" class="">Software de aplicación: </h3><p id="14fb9fc2-2bfc-403f-b9b1-0caf9fec29fd" class="">Programas aislados que resuelven una necesidad especifica de negocios, tales como apps de procesamiento de datos, procesamiento de transacciones en punto de ventas etc.</p><h3 id="ba16fa5f-d187-4ae7-ac01-cc2b331b8398" class="">Software de ingeniería y ciencias: </h3><p id="89056a26-0b5f-4ffc-bb9f-3075fc233dc6" class="">Algoritmos devoradores de números, estas aplicaciones van desde astronomía hasta geología, entre muchas otras aplicaciones, últimamente han tomado características del software de sistemas</p><h3 id="0458b327-18c9-47a7-a4b1-cd2b91783d14" class="">software incrustado: </h3><p id="00c8c9b7-4474-4547-8524-7508dfa73245" class="">Reside dentro de un producto y se usa para implementar características y funciones para el usuario final y para el sistma, control de tablero de un horno de microondas, la interfaz de un reloj digital, entre otros</p><h3 id="dbe9fa00-e653-4ccf-9059-b15b2f98a68e" class="">software de linea de productos: </h3><p id="671d070b-b05e-45af-8f88-53ffc3a7ae9e" class="">es diseñado para proporcionar una capacidad especifica para uso de muchos consumidores diferentes (un ejemplo es la paquetería de office)</p><h3 id="c36c74ea-345b-49bf-bd8d-8787fb7362f3" class="">Aplicaciones web: </h3><p id="1cdd47cc-9b0c-4bc5-97de-3cecd8015daf" class="">software centrado en redes, agrupa una amplia gama de aplicaciones, desde la web 2.0 integran bases de datos corporativas y aplicaciones de negocios. </p><h3 id="afa7c49e-09d5-4954-afc5-9ab1b30a2f52" class="">software de inteligencia artificial: </h3><p id="4626b6ee-a4d0-4d62-b79f-3c384258ecac" class="">Hace uso de algoritmos no numéricos para resolver problemas complejos que no son fáciles de tratar computacionalmente o con el análisis directo, las aplicaciones en esta ares incluyen una miscelánea de usos, </p><figure id="449cc2fc-200f-48b3-8e96-86f83ea757dc" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled.png"><img style="width:976px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled.png"/></a></figure><p id="a20a6500-ab81-474c-8950-8d0b74ed9c28" class="">
+</p><h2 id="1f364379-2e0f-44ab-acba-654fa9091b8e" class="">5 Clasificación de las herramientas Case</h2><p id="04594adb-e9e8-4dba-acb8-389dda9f017e" class="">Las herramientas CASE son un conjunto de aplicaciones informáticas, usadas para automatizar actividades de el ciclo de vida de desarrollo de sistemas (SDLC).</p><p id="4ae91f76-6699-4a97-ba1d-d63229d1dbbe" class="">Las herramientas CASE (Computer - aided - software - engineering) se clasifican de la siguiente forma: </p><ul id="8483c552-24f2-4874-bf73-04f84a8a70e1" class="bulleted-list"><li style="list-style-type:disc">herramientas Upper Case: Se usan en las etapas de panificación, análisis, y diseño del ciclo de vida del desarrollo de software (SDLC) </li></ul><ul id="7d9552bf-9b27-4810-8fc1-3bfbee90966e" class="bulleted-list"><li style="list-style-type:disc">Herramientas Lower Case: Se usan en la implementación, pruebas y en el mantenimiento</li></ul><ul id="586edc94-209d-49ca-9918-09bda9e0fd61" class="bulleted-list"><li style="list-style-type:disc">Herramientas INTEGRATED case: se utilizan en todas las fases del SDLC desde el levantamiento de requisitos hasta el mantenimiento. </li></ul><p id="6cbc7533-9657-4c30-8f4a-750f5dbe6c2b" class="">
+</p><p id="d85e2531-d5f1-4746-9f85-8c7d92792be1" class="">
+</p><figure id="1fabfe61-079e-46f3-8240-9153c9798569" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/CASEtools.png"><img style="width:572px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/CASEtools.png"/></a></figure><p id="b701d829-49b7-49f7-b4ac-3ffa9ab5d7c0" class="">
+</p><h2 id="f21ac094-d5f7-4084-be44-ce8fb5714356" class="">Modelos de desarrollo de software </h2><p id="99e6669a-0260-470b-8c70-4d722f83de29" class="">Los modelos son enfoques estructurados que describen como se debe llevar a cabo el proceso de creación, implementación y mantenimiento de sistemas de software, estos procesos proporcionan un marco de referencia que guía a los equipos de desarrollo en la planificación, ejecución y entrega de los proyectos de software.</p><p id="764dfb9f-06db-42db-b851-68804ce1178f" class="">
+</p><h2 id="56c1f0a9-7c20-4ff1-8244-4b9fb24b26b0" class="">6 Modelo cascada </h2><p id="6108e022-b467-423c-96a5-2c8d33c2c732" class="">Según Pressman, el modelo cascada, a veces llamado ciclo de vida clásico, sugiere un enfoque sistemático y secuencia, para el desarrollo de software, que comienza con la especificación de los requerimientos por parte del cliente y avanza a través de la planeación, modelado, construcción y despliegue para concluir con el apoyo del software terminado. </p><figure id="888c2848-7b64-4825-a1a4-98eaf2e218fe" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%201.png"><img style="width:708px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%201.png"/></a></figure><ul id="a28290a4-0714-4f92-aa7f-34b14dcc8e83" class="bulleted-list"><li style="list-style-type:disc"><strong>Ventajas</strong>: Claridad en las fases, documentación detallada, gestión simplificada.</li></ul><ul id="06d0d8e1-55ae-4d44-86d4-aa65c026490b" class="bulleted-list"><li style="list-style-type:disc"><strong>Desventajas</strong>: Rigidez, poca flexibilidad para cambios, descubrimiento tardío de problemas.</li></ul><ul id="3918440a-feeb-4cee-a5dc-c7122d231915" class="bulleted-list"><li style="list-style-type:disc"><strong>Aplicación</strong>: Proyectos con requisitos bien definidos desde el inicio.</li></ul><h3 id="266b9c8c-4143-4b9a-b119-376cbb866b04" class="">Modelo de cascada en v: </h3><figure id="552b94af-d85e-4f42-8fe4-5b7af510ccb7" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%202.png"><img style="width:687px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%202.png"/></a></figure><p id="769d491a-dd44-4e25-a233-e5daf510b571" class="">Una variante de la representación del modelo de la cascada se denomina modelo en V. En la<br/>figura se aprecia la relación entre las acciones para el aseguramiento de la calidad y aquellas asociadas con la comunicación, modelado y construcción temprana. A medida que el equipo de software avanza hacia abajo desde el lado izquierdo de la V, los requerimientos básicos del problema mejoran hacia representaciones técnicas cada vez más detalladas del problema y de su solución. Una vez que se ha generado el código, el equipo sube por el lado derecho de la V, y en esencia ejecuta una serie de pruebas (acciones para asegurar la calidad) que validan cada uno de los modelos creados cuando el equipo fue hacia abajo por el lado izquierdo. En realidad, no hay diferencias fundamentales entre el ciclo de vida clásico y el modelo en V. Este último proporciona una forma de visualizar el modo de aplicación de las acciones de verificación y validación al trabajo de ingeniería inicial.<br/></p><p id="570216bd-1d61-4347-b9ea-36ce0d8d69f4" class="">
+</p><p id="91ac5a56-2149-434d-b2cb-3e402107f6a2" class="">
+</p><div id="5baea48e-ad32-46df-b441-b9031d44b9d4" class="column-list"><div id="17bca543-2c82-4873-b576-eadb0c7d9e3a" style="width:50%" class="column"><h2 id="6b05b11b-3b95-4c37-8b70-74e7a0ea74dd" class="">Pivote </h2><p id="5f1a7d24-8b18-434b-a1da-468ce4424b29" class="">
+</p></div><div id="4304d1ba-7ae2-4c4d-8e2a-7ae8f7ac9fe1" style="width:50%" class="column"><p id="5f035d67-b0ea-494e-b571-bc73caf66503" class="">Un pivote consiste en un<br/>cambio de rumbo de tu idea<br/>empresarial diseñado para<br/>probar y/o testear nuevas<br/>hipótesis sobre el producto o<br/>el modelo de negocio que te<br/>traes entre manos.<br/></p><p id="283b7aed-3a25-4ef0-8c95-623fb6cc3667" class="">
+</p><p id="d32a9e00-42cb-4511-8066-9213792cb6e0" class="">
+</p><p id="23b8e7c6-513d-49b4-8d88-b4c6aebc312a" class="">
+</p></div></div><h2 id="b989e54f-ebcf-47b4-b3e3-af000e5b2fb9" class="">8 Modelo de proceso  incremental </h2><p id="440f5fee-d6c2-44e0-a482-f7860daac6d5" class="">El modelo de proceso incremental se utiliza cuando los requisitos iniciales del software están bien definidos, pero el proyecto es demasiado grande para un proceso lineal. Este modelo permite entregar funcionalidad básica rápidamente a los usuarios y añadir mejoras en entregas posteriores.</p><figure id="abe9336f-dc8a-41cf-804e-e446dd4f0272" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%203.png"><img style="width:708px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%203.png"/></a></figure><h3 id="3377c46e-dce0-419d-b14d-d544bac23f0f" class="">Proceso de Desarrollo</h3><ol type="1" id="e240b7bd-1ec1-44f4-8f8e-8ae9662456d3" class="numbered-list" start="1"><li><strong>Primer incremento</strong>: Producto fundamental con características básicas.</li></ol><ol type="1" id="c1bb7b3e-609b-422e-91e1-a4e03e606ec6" class="numbered-list" start="2"><li><strong>Evaluación y uso</strong>: El cliente usa y evalúa el producto.</li></ol><ol type="1" id="40f1e3ff-82ff-4dfc-afe0-442bc9bb69aa" class="numbered-list" start="3"><li><strong>Planificación del siguiente incremento</strong>: Modificaciones y nuevas características basadas en la retroalimentación del cliente.</li></ol><ol type="1" id="bab330e0-44e7-4d7d-9901-fc2930609dc3" class="numbered-list" start="4"><li><strong>Repetición</strong>: Este ciclo se repite hasta completar el producto final.</li></ol><p id="7333a060-a095-4bac-8b08-c2ccc62799fb" class="">
+</p><p id="34e64615-264a-4a6e-ab22-6a96a2e134d3" class="">
+</p><h2 id="84ba4e0f-be5b-4810-815e-261734ad4cbc" class="">9 Modelo Espiral </h2><p id="e9ca6573-275e-4baa-bd80-883636909807" class="">El modelo espiral, propuesto por Barry Boehm, es un enfoque evolutivo para el desarrollo de software que combina la naturaleza iterativa de la creación de prototipos con el control sistemático del modelo en cascada. Este modelo permite desarrollar versiones cada vez más completas del sistema de forma rápida y controlada.</p><figure id="5ce8d53b-7cbb-4c91-8431-8c9c0ab0e2d6" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%204.png"><img style="width:780px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%204.png"/></a></figure><h3 id="db3dc0b7-b534-46b7-9478-e40c7576faa0" class=""><strong>Fases del Modelo Espiral:</strong></h3><ol type="1" id="870279e3-bcfc-41bc-a52d-cc8e9ddc548c" class="numbered-list" start="1"><li><strong>Comunicación:</strong> Interacción constante con los interesados para entender los requisitos.</li></ol><ol type="1" id="a372afd8-ab4f-4b7d-8730-62e7858012ca" class="numbered-list" start="2"><li><strong>Planeación:</strong> Estimación y programación de tareas, además de análisis de riesgos.</li></ol><ol type="1" id="178987c6-3454-49ca-92d7-68920500095a" class="numbered-list" start="3"><li><strong>Modelado:</strong> Análisis y diseño del sistema.</li></ol><ol type="1" id="4e7facf7-3d35-4546-b440-3de4a508419f" class="numbered-list" start="4"><li><strong>Construcción:</strong> Codificación y pruebas del software.</li></ol><ol type="1" id="e309b1e4-7ea3-4ac2-ac68-ba87ab2e726e" class="numbered-list" start="5"><li><strong>Despliegue:</strong> Entrega y retroalimentación del sistema.</li></ol><p id="77a9406f-bc28-4e9a-9d97-f2977722b0b4" class="">
+</p><p id="6eef203e-fdc4-4e7d-b150-8eae25c577b7" class=""><strong>Aplicación:</strong><br/>Es ideal para proyectos grandes y complejos donde la gestión de riesgos es crítica. A lo largo del ciclo de vida, el modelo puede adaptarse para representar diferentes tipos de proyectos, desde el desarrollo inicial hasta mejoras del producto.<br/></p><p id="61f06ff6-260b-4f55-b75c-4882d5a55b5f" class="">
+</p><p id="98720c43-4ac6-4f0d-8803-e9a99193bf97" class="">
+</p><h2 id="c437a5a9-0234-4501-8e00-44e9a62d6a86" class="">10 ISO 15504 /ISO 12207</h2><p id="2aac15c3-de9b-4c8e-b654-7560c122fc4e" class="">
+</p><h3 id="6767a1bf-ce37-4f32-a29c-83902dccf81d" class="">ISO 15504 (SPICE - Software Process Improvement and Capability dEtermination)</h3><p id="eb1f24a6-6d05-4071-a0f6-2f88ae4084d9" class=""><strong>¿Qué es?</strong><br/>ISO 15504, comúnmente conocida como SPICE (Software Process Improvement and Capability dEtermination), es una norma internacional que proporciona un marco para la evaluación y mejora de los procesos de software. Es utilizada para evaluar la capacidad y la madurez de los procesos de desarrollo y mantenimiento del software en las organizaciones.<br/></p><p id="d7207394-4422-4efa-9918-0ca477627173" class=""><strong>¿Para qué sirve?</strong><br/>SPICE (ISO 15504) sirve para:<br/></p><ul id="896bff93-6a34-4591-8c4d-bc40a4087034" class="bulleted-list"><li style="list-style-type:disc">Evaluar y mejorar la capacidad de los procesos de software.</li></ul><ul id="61581ff1-9060-4151-8e5d-9a21bb082e3c" class="bulleted-list"><li style="list-style-type:disc">Establecer un marco común para la evaluación comparativa de los procesos.</li></ul><ul id="ee496570-f468-47ec-a196-e3ead7dcbb22" class="bulleted-list"><li style="list-style-type:disc">Ayudar a las organizaciones a identificar áreas de mejora y establecer objetivos específicos de mejora.</li></ul><ul id="dab5fad8-1899-42a5-a97d-9c2a3e2606cc" class="bulleted-list"><li style="list-style-type:disc">Facilitar la comunicación entre diferentes partes interesadas sobre la calidad y madurez de los procesos de software.</li></ul><p id="06c1bd84-b51c-4a79-9c82-e5af22a34632" class=""><strong>¿Qué abona a la IS?</strong><br/>SPICE contribuye a la Ingeniería de Software (IS) al proporcionar un método estructurado y estandarizado para la evaluación y mejora continua de los procesos de desarrollo de software. Esto ayuda a las organizaciones a gestionar de manera más efectiva la calidad del software y la satisfacción del cliente.<br/></p><p id="e17d3473-0931-4422-96a3-5e2648793ae7" class=""><strong>Ventajas y desventajas</strong></p><ul id="6de18c0b-1d4b-43ed-8709-9d195cfbd5fd" class="bulleted-list"><li style="list-style-type:disc"><strong>Ventajas:</strong><ul id="34c8803a-788c-4d21-b556-d0251fba6c20" class="bulleted-list"><li style="list-style-type:circle">Mejora la calidad y consistencia de los procesos de software.</li></ul><ul id="f3d7c454-7178-48cc-82b2-28f9c9616510" class="bulleted-list"><li style="list-style-type:circle">Facilita la identificación y corrección de deficiencias en los procesos.</li></ul><ul id="303ebbdb-2567-4c9f-9b52-b1a74bb35410" class="bulleted-list"><li style="list-style-type:circle">Proporciona un lenguaje común para discutir y mejorar la gestión de procesos de software.</li></ul></li></ul><ul id="e04f44c2-102b-4e9b-ac05-6db42fbb20c3" class="bulleted-list"><li style="list-style-type:disc"><strong>Desventajas:</strong><ul id="0a2101a2-7959-47e9-a2d2-7819d1abbf57" class="bulleted-list"><li style="list-style-type:circle">Puede requerir recursos significativos para implementar y mantener.</li></ul><ul id="d7981b89-b37b-4bf9-b276-bba1889d8282" class="bulleted-list"><li style="list-style-type:circle">La interpretación de los resultados puede variar entre evaluadores.</li></ul><ul id="e204f285-a17e-44b2-be83-3ebc33a326c6" class="bulleted-list"><li style="list-style-type:circle">Enfoque más adecuado para organizaciones grandes o maduras.</li></ul></li></ul><p id="3ba390d7-5c36-4de1-bb66-5eb56f4715c9" class=""><strong>¿Con qué se complementa?</strong><br/>SPICE se complementa con otros estándares y modelos de calidad de software, como ISO 9001 (gestión de calidad), CMMI (Capability Maturity Model Integration) y otros modelos de mejora de procesos específicos de la industria.<br/></p><h3 id="f3be1ca8-09cc-4780-96ee-fae3c9f435b1" class="">ISO 12207 (Ciclo de vida del Software)</h3><p id="abd76c05-b808-47bd-afdc-ec973436691e" class=""><strong>¿Qué es?</strong><br/>ISO 12207 define un marco para los procesos del ciclo de vida del software. Es una norma internacional que establece procesos y actividades que deben ser cumplidos en el desarrollo, operación y mantenimiento de software.<br/></p><p id="4c1b9f81-03df-4384-a56a-56dd78739435" class=""><strong>¿Para qué sirve?</strong><br/>ISO 12207 sirve para:<br/></p><ul id="418e1ce5-7976-424a-8ba1-5524afca0fd7" class="bulleted-list"><li style="list-style-type:disc">Establecer un marco común para el desarrollo y mantenimiento del software.</li></ul><ul id="f1ca584b-e2d6-4c1c-a03f-bafce5e81235" class="bulleted-list"><li style="list-style-type:disc">Definir procesos y actividades específicas para cada fase del ciclo de vida del software.</li></ul><ul id="23ebb16c-75f7-4b69-9dd2-fefdb459e6d7" class="bulleted-list"><li style="list-style-type:disc">Proporcionar un lenguaje común y una estructura para la gestión de proyectos de desarrollo de software.</li></ul><p id="3e1d0c44-c7ea-4f28-a37e-dd4eabea6bbf" class=""><strong>¿Qué abona a la IS?</strong><br/>ISO 12207 contribuye a la Ingeniería de Software al proporcionar un marco estandarizado que facilita la gestión y la mejora de los procesos de desarrollo de software. Ayuda a las organizaciones a estructurar de manera efectiva sus actividades relacionadas con el software, desde la concepción hasta la retirada del producto.<br/></p><p id="7b80118d-b2df-45ab-bb59-42e5eeefdb4c" class=""><strong>Ventajas y desventajas</strong></p><ul id="11c2a738-9e31-4895-bbd2-b6c50204211c" class="bulleted-list"><li style="list-style-type:disc"><strong>Ventajas:</strong><ul id="52d0cca0-1f0b-46e0-9207-f38aefb106ee" class="bulleted-list"><li style="list-style-type:circle">Proporciona un marco detallado para la gestión de procesos de software.</li></ul><ul id="0aa23fbb-ac6e-4ed5-b9f4-156505e3e9f0" class="bulleted-list"><li style="list-style-type:circle">Facilita la comunicación y colaboración entre diferentes equipos y partes interesadas.</li></ul><ul id="6bf171e1-4c5b-4af9-b5f7-4e59d6e5cb23" class="bulleted-list"><li style="list-style-type:circle">Establece expectativas claras para las actividades de desarrollo de software.</li></ul></li></ul><ul id="5870d717-47e2-498b-bb5b-f3c1db36205f" class="bulleted-list"><li style="list-style-type:disc"><strong>Desventajas:</strong><ul id="e7999955-5f29-4742-8833-c2b86b32edd5" class="bulleted-list"><li style="list-style-type:circle">Puede ser complejo de implementar y mantener, especialmente para pequeñas organizaciones.</li></ul><ul id="f057ccbe-7767-447a-86f9-8e70017efdab" class="bulleted-list"><li style="list-style-type:circle">Requiere personal capacitado para interpretar y aplicar correctamente los procesos definidos.</li></ul><ul id="f9408db2-e513-48e5-a7f1-313489ccbae6" class="bulleted-list"><li style="list-style-type:circle">Enfoque estructurado que puede ser percibido como rígido en algunos contextos ágiles.</li></ul></li></ul><p id="31781569-0471-4484-8829-d1c6759e5ab6" class=""><strong>¿Con qué se complementa?</strong><br/>ISO 12207 se complementa con otros estándares relacionados con el desarrollo de software y la gestión de proyectos, como ISO 9001 (calidad), ISO/IEC 27001 (seguridad de la información) y CMMI (mejora de procesos).<br/></p><p id="463db926-85e1-4417-a47d-81fc29193f85" class="">
+</p><h2 id="9cf825c0-9cdd-4033-bb1e-f934ab2a2e5c" class="">11 Modelos concurrentes </h2><p id="340d8997-6662-4271-9dcd-9e873afec8f7" class="">El modelo de desarrollo concurrente, o ingeniería concurrente, permite que un equipo de software represente elementos iterativos y concurrentes de varios modelos de proceso. Por ejemplo, durante el modelado en el modelo espiral, se pueden realizar acciones como hacer prototipos, análisis y diseño.</p><p id="f8118da0-4ff4-4425-a21d-3132e78592ce" class="">El enfoque de modelado concurrente muestra una serie de eventos que provocan transiciones de estado entre las actividades de ingeniería de software. Por ejemplo, si durante el diseño se detecta una inconsistencia en el modelo de requerimientos, esto genera el evento de corrección del modelo de análisis, cambiando el estado de los requerimientos a &quot;cambios en espera&quot;.</p><p id="228b5917-81b3-4613-8a56-2867e8910b34" class="">El modelado concurrente es aplicable a cualquier tipo de desarrollo de software y ofrece una visión del estado actual del proyecto. En lugar de seguir una secuencia fija de eventos, define una red de procesos donde cada actividad, acción o tarea coexiste simultáneamente con otras. Los eventos generados en esta red desencadenan transiciones entre los estados.</p><figure id="a594d7a9-92a9-421e-9643-772cc12217d2" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%205.png"><img style="width:480px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%205.png"/></a></figure><h3 id="8b73c3f0-ddc2-4435-9cdb-5f48ee1bdcd3" class="">Fases del Modelo Concurrente</h3><ol type="1" id="9c762d9b-eaa2-494f-b8d0-fdf451c17ee7" class="numbered-list" start="1"><li><strong>Inicio del Proyecto</strong><ul id="dd11563c-2bf0-4513-be11-b9a32c0ba45b" class="bulleted-list"><li style="list-style-type:disc"><strong>Identificación de Requisitos:</strong> Se identifican las necesidades y requisitos del sistema.</li></ul><ul id="2c874e6b-c5a9-473a-b25c-7c07065c4765" class="bulleted-list"><li style="list-style-type:disc"><strong>Planificación Inicial:</strong> Se crea un plan de proyecto inicial, incluyendo cronogramas y recursos.</li></ul></li></ol><ol type="1" id="ef0277c9-37e0-458a-ab61-7364b6247bfd" class="numbered-list" start="2"><li><strong>Modelado Concurrente</strong><ul id="f770f194-6368-40f4-ba4e-573325d0ae47" class="bulleted-list"><li style="list-style-type:disc"><strong>Prototipado:</strong> Desarrollo de prototipos para explorar requisitos y soluciones.</li></ul><ul id="2bba776c-7e3b-4b68-a56c-b8d4f62c66e9" class="bulleted-list"><li style="list-style-type:disc"><strong>Análisis de Requisitos:</strong> Definición y análisis de los requisitos detallados.</li></ul><ul id="79945d92-14a2-4377-a130-eddadc63cd6f" class="bulleted-list"><li style="list-style-type:disc"><strong>Diseño:</strong> Creación de la arquitectura y diseño detallado del sistema.</li></ul></li></ol><ol type="1" id="c2ab25d2-3149-4d2b-ad94-d3db409055b5" class="numbered-list" start="3"><li><strong>Desarrollo e Implementación</strong><ul id="48ba82ec-cf94-4d01-b127-92264c6dbd2a" class="bulleted-list"><li style="list-style-type:disc"><strong>Codificación:</strong> Desarrollo del código fuente según el diseño.</li></ul><ul id="59f28c29-f604-49a6-a08f-b8861abe4ccb" class="bulleted-list"><li style="list-style-type:disc"><strong>Pruebas:</strong> Ejecución de pruebas unitarias, de integración y del sistema.</li></ul></li></ol><ol type="1" id="1641ce15-0752-43f9-83cc-fd30219e497b" class="numbered-list" start="4"><li><strong>Revisión y Corrección</strong><ul id="ba540253-e2e8-4248-8e91-23cd0787cb5c" class="bulleted-list"><li style="list-style-type:disc"><strong>Validación:</strong> Asegurar que el sistema cumple con los requisitos especificados.</li></ul><ul id="b6b19ef2-969d-44b0-b570-8140a7226a75" class="bulleted-list"><li style="list-style-type:disc"><strong>Corrección de Errores:</strong> Identificación y corrección de errores detectados durante las pruebas.</li></ul></li></ol><ol type="1" id="ee649b2f-753c-4e0f-8a3c-c0791380b30c" class="numbered-list" start="5"><li><strong>Mantenimiento</strong><ul id="a566b7ce-586a-46e1-b0e0-1bfd30d8e96f" class="bulleted-list"><li style="list-style-type:disc"><strong>Actualización:</strong> Modificaciones y mejoras continuas del sistema después de su implementación.</li></ul><ul id="ef078a84-5c00-45e3-a8ae-a8d47a4978f4" class="bulleted-list"><li style="list-style-type:disc"><strong>Soporte:</strong> Provisión de soporte técnico y resolución de problemas post-implementación.</li></ul></li></ol><h3 id="8f9ea7d5-6bc8-4688-a39e-7903e46b4fb5" class="">Ventajas del Modelo Concurrente</h3><ol type="1" id="bcf2d071-132d-420f-9fa8-660ee7103507" class="numbered-list" start="1"><li><strong>Flexibilidad y Adaptabilidad:</strong> Permite realizar cambios en cualquier fase del desarrollo sin interrumpir el progreso global del proyecto.</li></ol><ol type="1" id="45ac1822-fed6-4534-8854-d0cf578d7582" class="numbered-list" start="2"><li><strong>Detección Temprana de Problemas:</strong> Facilita la identificación y corrección temprana de errores o inconsistencias.</li></ol><ol type="1" id="753a6dfd-0a33-4fe5-b111-65d87d1896bc" class="numbered-list" start="3"><li><strong>Paralelismo de Actividades:</strong> Múltiples tareas pueden ejecutarse simultáneamente, lo que puede acelerar el proceso de desarrollo.</li></ol><ol type="1" id="29e22055-6556-4ecf-82cd-f862bbc42c75" class="numbered-list" start="4"><li><strong>Mejor Comunicación y Colaboración:</strong> Fomenta una comunicación constante entre los equipos de desarrollo, lo que mejora la colaboración y la integración de distintas disciplinas.</li></ol><ol type="1" id="07cdcc73-c581-4b5a-b3ff-27518bd3ddd5" class="numbered-list" start="5"><li><strong>Visión Clara del Proyecto:</strong> Proporciona una visión continua del estado actual del proyecto, permitiendo un seguimiento más preciso y gestión de riesgos.</li></ol><h3 id="3cc9ad00-8e92-4cbf-85f2-b13989ff42fd" class="">Aplicaciones del Modelo Concurrente</h3><ol type="1" id="801e15b5-4419-4924-a5f8-85194cb76895" class="numbered-list" start="1"><li><strong>Proyectos Complejos y Dinámicos:</strong> Ideal para proyectos grandes y complejos donde los requisitos pueden cambiar con frecuencia.</li></ol><ol type="1" id="00280db0-a54d-4b45-8b55-69510cd519da" class="numbered-list" start="2"><li><strong>Desarrollo de Software en Entornos Ágiles:</strong> Compatible con metodologías ágiles que requieren iteraciones rápidas y ajustes continuos.</li></ol><ol type="1" id="a1b36d1a-436b-4b3a-9275-76f5c3fcf273" class="numbered-list" start="3"><li><strong>Ingeniería de Sistemas:</strong> Útil en la ingeniería de sistemas donde la integración de múltiples componentes es crucial.</li></ol><ol type="1" id="107943c0-7e1f-4385-8386-54d935368efc" class="numbered-list" start="4"><li><strong>Desarrollo de Prototipos:</strong> Beneficioso cuando se necesita desarrollar prototipos para validar ideas y conceptos antes de la implementación completa.</li></ol><ol type="1" id="359b4aef-152e-4a5b-b5f1-f62b11195dee" class="numbered-list" start="5"><li><strong>Proyectos con Alta Interacción Cliente-Desarrollador:</strong> Adecuado para proyectos donde la retroalimentación continua del cliente es esencial para el éxito del producto final.</li></ol><h2 id="e2e45929-a740-4041-89fb-0f5a555c017e" class="">12 Deuda técnica </h2><p id="cd8f895e-c401-4a70-81b5-9f3fc6786bc8" class="">La deuda técnica es un concepto en desarrollo de software que se refiere a las consecuencias de implementar soluciones rápidas y de menor calidad en lugar de soluciones más robustas y bien diseñadas. Estas soluciones rápidas pueden facilitar el progreso a corto plazo, pero a largo plazo pueden requerir refactorización y corrección, lo que incurre en &quot;intereses&quot; similares a los financieros.</p><h3 id="b4a59a06-3967-4619-8585-1499a5d5e537" class="">Causas de la Deuda Técnica</h3><ol type="1" id="b248a8b4-2a1f-4105-b8f5-f074d9eeec7e" class="numbered-list" start="1"><li><strong>Plazos Ajustados:</strong> La presión por cumplir con fechas límite puede llevar a los desarrolladores a optar por soluciones rápidas en lugar de soluciones óptimas.</li></ol><ol type="1" id="b6201312-3d52-4f5a-9341-1d213eac5825" class="numbered-list" start="2"><li><strong>Falta de Conocimiento:</strong> Los desarrolladores pueden no estar al tanto de mejores prácticas o de la tecnología adecuada, resultando en un diseño deficiente.</li></ol><ol type="1" id="ddfeb39b-1d4e-4784-9355-755258f32477" class="numbered-list" start="3"><li><strong>Cambio de Requisitos:</strong> Requisitos cambiantes pueden hacer que las soluciones anteriores se vuelvan inadecuadas, acumulando deuda técnica.</li></ol><ol type="1" id="25e95c48-aaf9-44ee-8043-04c9a72666bb" class="numbered-list" start="4"><li><strong>Decisiones Conscientes:</strong> En ocasiones, se toma la decisión consciente de incurrir en deuda técnica para lanzar un producto al mercado rápidamente y obtener retroalimentación.</li></ol><ol type="1" id="de94ae85-434f-4592-8ffa-17bf61dd05ad" class="numbered-list" start="5"><li><strong>Mantenimiento y Evolución:</strong> El software que evoluciona sin una planificación adecuada puede acumular deuda técnica debido a la integración de nuevas características sobre una base antigua.</li></ol><h3 id="7850ecbb-2cc9-4454-94fe-a2cbc650cc76" class="">Ventajas y Desventajas de la Deuda Técnica</h3><h3 id="5d4b1c80-b0f5-466b-83ae-20ad8785c880" class="">Ventajas</h3><ol type="1" id="aae99ed5-d360-4db8-9393-527383e8d2ff" class="numbered-list" start="1"><li><strong>Velocidad de Desarrollo:</strong> Permite a los equipos de desarrollo entregar funcionalidades rápidamente, lo cual puede ser crucial en mercados competitivos.</li></ol><ol type="1" id="e7f0341a-205d-498c-8ff5-88cdbd92b8b6" class="numbered-list" start="2"><li><strong>Validación Temprana:</strong> Facilita la obtención de retroalimentación temprana de los usuarios, permitiendo ajustes rápidos y validación del producto.</li></ol><ol type="1" id="5035261a-380d-4576-998c-573df3de2b35" class="numbered-list" start="3"><li><strong>Flexibilidad Inicial:</strong> Proporciona flexibilidad inicial para explorar ideas y enfoques sin comprometer demasiado tiempo y recursos.</li></ol><h3 id="3499a00a-1b23-444b-b960-3394e3cb3c53" class="">Desventajas</h3><ol type="1" id="86ec80ec-2a6d-4664-a61c-6c6f8e8734c8" class="numbered-list" start="1"><li><strong>Costo de Mantenimiento:</strong> A largo plazo, la deuda técnica puede incrementar los costos de mantenimiento debido a la necesidad de refactorización y corrección.</li></ol><ol type="1" id="79e051be-04b5-4e89-aae9-414dca839c0a" class="numbered-list" start="2"><li><strong>Riesgo de Defectos:</strong> Puede aumentar el riesgo de errores y fallos en el sistema, afectando la calidad y confiabilidad del software.</li></ol><ol type="1" id="99bbe848-b20d-479f-bbc4-28baf6aa11bf" class="numbered-list" start="3"><li><strong>Dificultad de Escalabilidad:</strong> Soluciones rápidas y no óptimas pueden limitar la capacidad de escalabilidad y evolución del software.</li></ol><ol type="1" id="05fa0381-e7b3-456d-a9bf-bb02813962f7" class="numbered-list" start="4"><li><strong>Degradación de la Moral del Equipo:</strong> Trabajar con código de baja calidad puede afectar negativamente la moral y la productividad del equipo de desarrollo.</li></ol><h3 id="9af99ffe-35cb-4ba8-9ee4-f61d91b66b2d" class="">¿Es Buena o Mala la Deuda Técnica?</h3><p id="105767de-845e-47f2-8513-40ec09da4d80" class="">La deuda técnica no es inherentemente buena o mala; su impacto depende de cómo se maneje:</p><ul id="510e9302-0942-44e9-89f7-a5e854222b22" class="bulleted-list"><li style="list-style-type:disc"><strong>Manejo Responsable:</strong> Cuando se gestiona de manera consciente y estratégica, puede ser una herramienta útil para acelerar el desarrollo y obtener retroalimentación temprana. Esto implica planificar la refactorización y el pago de la deuda técnica en futuros ciclos de desarrollo.</li></ul><ul id="567955d0-af74-42ff-89a3-2c57f6be81b5" class="bulleted-list"><li style="list-style-type:disc"><strong>Manejo Irresponsable:</strong> Si se ignora o se acumula sin control, puede llevar a un aumento en los costos de mantenimiento, problemas de calidad y dificultad para evolucionar el software, lo cual es perjudicial a largo plazo.</li></ul><p id="3f50af0f-6095-45f8-a060-78b4511bb40a" class="">
+</p><h1 id="008c4fbb-96aa-44a7-8424-81820c1d1877" class="">segundo parcial</h1><h2 id="74783dea-4593-4328-82b0-1317251d2ed0" class="">13 Modelo basado en componentes</h2><p id="3f6d296e-e483-48e8-828c-692b7c24dbbe" class="">El modelo basado en componentes (Component-Based Development, CBD) es una metodología de desarrollo de software que se centra en la reutilización de componentes preexistentes o en la creación de nuevos componentes que pueden ser reutilizados en múltiples aplicaciones. Este enfoque permite ensamblar aplicaciones a partir de componentes modulares, lo que puede acelerar el desarrollo y mejorar la calidad del software.</p><h3 id="daa58011-e60d-477c-ac17-11d030f2f381" class="">Fases del Modelo Basado en Componentes</h3><ol type="1" id="b2b2cc5b-c97c-464b-a15a-1df6119778c7" class="numbered-list" start="1"><li><strong>Identificación de Componentes</strong><ul id="ced5ad2e-1b84-4d51-bbd0-70a04f434ec5" class="bulleted-list"><li style="list-style-type:disc"><strong>Análisis de Requisitos:</strong> Se identifican los requisitos del sistema y se determinan los componentes necesarios para satisfacer estos requisitos.</li></ul><ul id="63e46ff2-46e7-47df-9495-c0a8d9438210" class="bulleted-list"><li style="list-style-type:disc"><strong>Inventario de Componentes:</strong> Se revisan componentes existentes que pueden ser reutilizados, tanto internos como de terceros.</li></ul></li></ol><ol type="1" id="11f2be43-05ff-4d76-87a3-eb26abf3fa26" class="numbered-list" start="2"><li><strong>Diseño del Sistema Basado en Componentes</strong><ul id="16898127-8cd1-4a5e-9e0f-e33fecb15874" class="bulleted-list"><li style="list-style-type:disc"><strong>Diseño Arquitectónico:</strong> Se define la arquitectura del sistema, especificando cómo interactuarán los componentes entre sí.</li></ul><ul id="6106ae4e-19d6-4d6e-9fbd-01ce7ef05117" class="bulleted-list"><li style="list-style-type:disc"><strong>Diseño de Interfaces:</strong> Se diseñan las interfaces que permitirán la comunicación entre los componentes.</li></ul></li></ol><ol type="1" id="0b9f3743-0499-4efc-8236-fd29083ed1cb" class="numbered-list" start="3"><li><strong>Desarrollo y Adquisición de Componentes</strong><ul id="92996c17-d19c-4106-ba95-dbdfb3727fc3" class="bulleted-list"><li style="list-style-type:disc"><strong>Desarrollo de Componentes Nuevos:</strong> Si no existen componentes adecuados, se desarrollan nuevos componentes modulares.</li></ul><ul id="52335d63-109f-4a2e-9dbe-e5633cb04782" class="bulleted-list"><li style="list-style-type:disc"><strong>Integración de Componentes Existentes:</strong> Se integran componentes preexistentes, asegurándose de que funcionen correctamente en el nuevo sistema.</li></ul></li></ol><ol type="1" id="3de7f7df-5638-43c4-b616-e3fdca03365c" class="numbered-list" start="4"><li><strong>Integración y Pruebas</strong><ul id="5c265fd3-be58-4ed1-af5b-406bfe42f33b" class="bulleted-list"><li style="list-style-type:disc"><strong>Integración de Componentes:</strong> Los componentes se ensamblan para formar el sistema completo.</li></ul><ul id="0e90dd65-4ba6-4bf0-8c3d-687b3212bc25" class="bulleted-list"><li style="list-style-type:disc"><strong>Pruebas de Integración:</strong> Se realizan pruebas para asegurar que los componentes funcionan correctamente juntos.</li></ul><ul id="6cc08e16-d484-41d1-b223-b6cee580d835" class="bulleted-list"><li style="list-style-type:disc"><strong>Pruebas del Sistema:</strong> Se realizan pruebas finales para verificar que el sistema cumple con todos los requisitos especificados.</li></ul></li></ol><ol type="1" id="0c5e4196-b73e-4c23-b3f2-258cdea83294" class="numbered-list" start="5"><li><strong>Mantenimiento y Evolución</strong><ul id="3b3a9481-1f99-439d-81d5-c8672d792c2b" class="bulleted-list"><li style="list-style-type:disc"><strong>Actualización de Componentes:</strong> Se actualizan y mejoran los componentes existentes según sea necesario.</li></ul><ul id="089a62c6-39d0-4b57-b468-f23426780443" class="bulleted-list"><li style="list-style-type:disc"><strong>Adición de Nuevos Componentes:</strong> Nuevos componentes se pueden agregar al sistema para extender su funcionalidad.</li></ul></li></ol><h3 id="e9750078-9646-48b4-a166-19fcffad7a52" class="">Ventajas del Modelo Basado en Componentes</h3><ol type="1" id="3bb95e4b-4407-425f-9bae-1ff45a3434cc" class="numbered-list" start="1"><li><strong>Reutilización de Software:</strong> Promueve la reutilización de componentes, reduciendo el tiempo y costo de desarrollo.</li></ol><ol type="1" id="2264c68d-f850-4080-9f2a-d29314ae3e51" class="numbered-list" start="2"><li><strong>Flexibilidad y Escalabilidad:</strong> Los sistemas modulares son más fáciles de modificar y escalar, ya que los componentes pueden ser reemplazados o actualizados independientemente.</li></ol><ol type="1" id="387d0936-d05d-4949-bc48-d6c03f5f718b" class="numbered-list" start="3"><li><strong>Mejora de la Calidad:</strong> Componentes reutilizados y bien probados tienden a tener menos errores, mejorando la calidad general del sistema.</li></ol><ol type="1" id="4ab359b4-f112-4b91-8393-066d38b6964a" class="numbered-list" start="4"><li><strong>Reducción del Tiempo de Desarrollo:</strong> Al reutilizar componentes existentes, el tiempo necesario para desarrollar nuevas aplicaciones puede reducirse significativamente.</li></ol><ol type="1" id="84d6ed29-96d2-453c-b7e6-4b067573d814" class="numbered-list" start="5"><li><strong>Facilidad de Mantenimiento:</strong> El mantenimiento se simplifica al poder centrarse en componentes individuales sin afectar el sistema completo.</li></ol><h3 id="0ab64926-9939-41dd-81dc-2dd1e1622706" class="">Aplicaciones del Modelo Basado en Componentes</h3><ol type="1" id="cef07fee-df16-49e7-bac8-da3193e56bcf" class="numbered-list" start="1"><li><strong>Desarrollo de Software Empresarial:</strong> Utilizado en aplicaciones empresariales donde la modularidad y la capacidad de actualización son críticas.</li></ol><ol type="1" id="e545d3c7-4d64-43c6-869f-5daf4d4279cd" class="numbered-list" start="2"><li><strong>Sistemas Distribuidos:</strong> Adecuado para sistemas distribuidos que requieren componentes independientes que interactúan a través de redes.</li></ol><ol type="1" id="74ff63af-c487-480a-9d8a-b55c02a6d621" class="numbered-list" start="3"><li><strong>Aplicaciones Web y Servicios:</strong> Común en el desarrollo de aplicaciones web y servicios donde se pueden reutilizar componentes estándar.</li></ol><ol type="1" id="cfa40683-27ac-4bca-959d-ebc5cbfb19fc" class="numbered-list" start="4"><li><strong>Sistemas Embebidos:</strong> Utilizado en sistemas embebidos donde los componentes modulares pueden ser desarrollados y probados independientemente antes de la integración.</li></ol><ol type="1" id="304613ca-e6df-4431-a4ad-46cb2d997cce" class="numbered-list" start="5"><li><strong>Desarrollo de Productos de Software:</strong> Aplicable en la creación de productos de software donde la reutilización de componentes puede acelerar el lanzamiento al mercado.</li></ol><figure id="96845b82-a581-4880-946d-8ca21c6c9c14" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%206.png"><img style="width:850px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%206.png"/></a></figure><h2 id="e2bcd5d4-0ff3-4c6f-9af6-e32017ac9fee" class="">14 Modelo de proceso unificado PU</h2><p id="de3fbe0e-9b75-47c8-93ad-cf25c48dc871" class="">El Proceso Unificado es un modelo de desarrollo de software que combina los mejores rasgos de los modelos tradicionales con principios del desarrollo ágil. Reconoce la importancia de la comunicación con el cliente y utiliza casos de uso para representar su perspectiva. Enfatiza la arquitectura del software, asegurando que sea comprensible, permita cambios futuros y sea reutilizable. El proceso es iterativo e incremental, dando una sensación evolutiva esencial para el desarrollo moderno de software.</p><h3 id="b8da9ad4-fbca-42eb-b9d7-25d4a81646b7" class="">Fases del Proceso Unificado</h3><ol type="1" id="49e1a3c4-dbb6-4c7d-8a43-e8e0fa8e824a" class="numbered-list" start="1"><li><strong>Concepción</strong><ul id="bc29c386-cd4a-4358-a3cb-71d6fe696295" class="bulleted-list"><li style="list-style-type:disc"><strong>Objetivo:</strong> Definir la visión del proyecto y la arquitectura inicial.</li></ul><ul id="652db394-b112-409e-954c-6742e4a24a95" class="bulleted-list"><li style="list-style-type:disc"><strong>Actividades:</strong> Identificación de requisitos fundamentales del negocio mediante casos de uso preliminares, desarrollo de una arquitectura aproximada y planificación del proyecto.</li></ul><ul id="45fd32d2-6927-4bf7-9112-05a797c7f90e" class="bulleted-list"><li style="list-style-type:disc"><strong>Resultados:</strong> Plan de proyecto, arquitectura inicial y casos de uso preliminares.</li></ul></li></ol><ol type="1" id="c5285f2e-acbd-4a1e-9aee-f7e2438ea6bb" class="numbered-list" start="2"><li><strong>Elaboración</strong><ul id="b279cda9-d2db-4129-b536-dbfe3c4fad2e" class="bulleted-list"><li style="list-style-type:disc"><strong>Objetivo:</strong> Refinar la visión del proyecto y la arquitectura.</li></ul><ul id="b470f80d-0caf-4c49-927c-3545da75d16d" class="bulleted-list"><li style="list-style-type:disc"><strong>Actividades:</strong> Ampliación de casos de uso, mejora de la arquitectura y creación de una línea de base de la arquitectura ejecutable.</li></ul><ul id="6759d872-52d6-4c33-85c3-651a5065c0e6" class="bulleted-list"><li style="list-style-type:disc"><strong>Resultados:</strong> Modelos de caso de uso, requisitos, diseño, implementación y despliegue, línea de base de la arquitectura y plan revisado.</li></ul></li></ol><ol type="1" id="f5663f08-7097-4e62-8fb3-0d96a3a0b952" class="numbered-list" start="3"><li><strong>Construcción</strong><ul id="b3f84a11-100e-497d-af83-d49359a1ee6c" class="bulleted-list"><li style="list-style-type:disc"><strong>Objetivo:</strong> Desarrollar el software basado en la arquitectura definida.</li></ul><ul id="4306efb7-f853-4044-b128-f8c32d7660fe" class="bulleted-list"><li style="list-style-type:disc"><strong>Actividades:</strong> Desarrollo de componentes, completación de modelos de requisitos y diseño, implementación de características y funciones, pruebas unitarias y de integración.</li></ul><ul id="041792c5-fde4-4fc8-b6c0-455cf16b11ec" class="bulleted-list"><li style="list-style-type:disc"><strong>Resultados:</strong> Código fuente funcional, componentes probados e integrados, pruebas de aceptación realizadas.</li></ul></li></ol><ol type="1" id="cf0be951-3c10-4419-a342-f39ca0f2cf34" class="numbered-list" start="4"><li><strong>Transición</strong><ul id="3c19b814-c637-42b4-a2f9-d869da56a447" class="bulleted-list"><li style="list-style-type:disc"><strong>Objetivo:</strong> Preparar el software para su lanzamiento.</li></ul><ul id="96455437-4aef-4351-bf8a-270bba2b4bda" class="bulleted-list"><li style="list-style-type:disc"><strong>Actividades:</strong> Pruebas beta, corrección de defectos, generación de documentación de apoyo y preparación para el lanzamiento.</li></ul><ul id="bd2989eb-77fa-410f-b7e5-30982868ed9e" class="bulleted-list"><li style="list-style-type:disc"><strong>Resultados:</strong> Software listo para el usuario final, manuales de usuario y guías de solución de problemas.</li></ul></li></ol><ol type="1" id="354f9910-309d-44b2-88e2-15101ba3f326" class="numbered-list" start="5"><li><strong>Producción</strong><ul id="ffc27ae7-8a48-42da-8d4e-d769c12e76f2" class="bulleted-list"><li style="list-style-type:disc"><strong>Objetivo:</strong> Desplegar y mantener el software en el entorno de operación.</li></ul><ul id="ffc2ffd9-7bf3-4cb7-8fbc-1f39bbdeda3e" class="bulleted-list"><li style="list-style-type:disc"><strong>Actividades:</strong> Monitoreo del uso del software, soporte técnico, corrección de defectos y manejo de solicitudes de cambio.</li></ul><ul id="5b8ffb49-446e-4e26-b978-fedfd327eafa" class="bulleted-list"><li style="list-style-type:disc"><strong>Resultados:</strong> Software operando en el entorno de producción, informes de defectos y cambios evaluados.</li></ul></li></ol><h3 id="17ad3122-6279-472f-98ac-237970baf16c" class="">Ventajas del Proceso Unificado</h3><ol type="1" id="654e7ade-6fb5-4bf8-90e0-8654c6660c58" class="numbered-list" start="1"><li><strong>Enfoque Iterativo e Incremental:</strong> Permite la evolución del software a través de múltiples iteraciones, mejorando continuamente la calidad y funcionalidad.</li></ol><ol type="1" id="9f21838a-7e0a-4703-b467-a353072f4ff2" class="numbered-list" start="2"><li><strong>Énfasis en la Arquitectura:</strong> Asegura una base sólida y flexible que facilita cambios futuros y reutilización.</li></ol><ol type="1" id="beea720d-ea22-4917-a667-ffb4819a5622" class="numbered-list" start="3"><li><strong>Comunicación con el Cliente:</strong> Utiliza casos de uso para capturar y comunicar claramente los requisitos del cliente.</li></ol><ol type="1" id="a6aaf040-d52d-4dd2-9a25-b22569a8edda" class="numbered-list" start="4"><li><strong>Gestión de Riesgos:</strong> Identifica y aborda los riesgos desde las primeras fases del proyecto.</li></ol><ol type="1" id="45873ac0-e2fe-43b3-ba9f-6d86bd274787" class="numbered-list" start="5"><li><strong>Flexibilidad:</strong> Adapta las tareas y actividades según las necesidades específicas del proyecto.</li></ol><h3 id="44602ef4-5b6b-4f85-b6a1-c583143071d0" class="">Aplicaciones del Proceso Unificado</h3><ol type="1" id="68542a01-a45b-4719-85b2-17bcb0922b0f" class="numbered-list" start="1"><li><strong>Desarrollo de Sistemas Complejos:</strong> Adecuado para proyectos grandes y complejos donde la arquitectura robusta es crucial.</li></ol><ol type="1" id="74fa6935-bbd5-4f1d-8c0e-206d7901a9d5" class="numbered-list" start="2"><li><strong>Proyectos con Requisitos Evolutivos:</strong> Ideal para proyectos donde los requisitos pueden cambiar y evolucionar a lo largo del tiempo.</li></ol><ol type="1" id="d43cc90d-a49a-4e38-9aab-28566a7a65c9" class="numbered-list" start="3"><li><strong>Entornos de Desarrollo Ágil:</strong> Compatible con principios ágiles, permitiendo iteraciones rápidas y retroalimentación continua.</li></ol><ol type="1" id="85b0e9fa-b5b4-42e4-be7b-2448f047a434" class="numbered-list" start="4"><li><strong>Software Empresarial:</strong> Utilizado en aplicaciones empresariales que requieren una planificación detallada y una arquitectura sólida.</li></ol><ol type="1" id="f35c5920-20a8-4239-a4d9-427f6f134005" class="numbered-list" start="5"><li><strong>Desarrollo Basado en Componentes:</strong> Facilita la integración de componentes modulares y reutilizables, mejorando la eficiencia y reduciendo costos.</li></ol><p id="d8aaeaa7-b6a9-4dbd-8f41-f2d4aa2b919d" class="">
+</p><figure id="a031baa3-ff69-4bb8-8873-4bd574d709d8" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%207.png"><img style="width:515px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%207.png"/></a></figure><p id="e8079d21-39d9-4512-ac01-1e22f87975ab" class="">
+</p><h2 id="aebb5e2a-6b09-4986-a4c4-c5b331f3d5dd" class="">15 Método de Programación XP </h2><p id="067ed8a9-29e7-411c-8ccd-418794005d00" class="">
+</p><p id="282d2ba6-3b6b-47ff-b70d-20eb57506e38" class="">
+</p><figure id="e6ed9799-29ac-40a2-ad9a-9e5253442e83" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/B57e674f-ac8c-4ee0-bd27-918dc7e383ac.webp"><img style="width:250px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/B57e674f-ac8c-4ee0-bd27-918dc7e383ac.webp"/></a></figure><p id="473faf7f-b968-4ae2-b689-fa65cd12fbf7" class="">
+</p><p id="5b9f2a75-7259-414a-af5b-303d2e567bf6" class="">La Programación Extrema (XP) es un enfoque de desarrollo de software ágil que pone énfasis en la flexibilidad, la colaboración y la capacidad de respuesta ante los cambios. Fue formalizado por Kent Beck y se basa en valores como la comunicación, simplicidad, retroalimentación, valentía y respeto. XP busca entregar software de alta calidad de manera eficiente y efectiva, adaptándose rápidamente a las necesidades cambiantes del cliente.</p><h3 id="b3425581-eae2-4323-b32a-e5c9e292231b" class="">Fases de XP</h3><p id="dcd68802-7e18-43b2-b005-aa76fe8191ea" class="">XP abarca un ciclo de vida de desarrollo que incluye las siguientes fases:</p><ol type="1" id="5d5e2873-2556-4667-baab-94584d895f51" class="numbered-list" start="1"><li><strong>Planeación (Planning)</strong>:<ul id="6d3ef9eb-94c9-40cc-9bc8-99649badac8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Escuchar</strong>: Recabar requerimientos y comprender el contexto del negocio.</li></ul><ul id="506e3709-9ee6-4569-8a1b-4a0f8c82a63c" class="bulleted-list"><li style="list-style-type:disc"><strong>Historias de usuario</strong>: Crear historias que describen la funcionalidad y características del software.</li></ul><ul id="03f2df86-9678-49a3-b8b6-f2afd41e58cb" class="bulleted-list"><li style="list-style-type:disc"><strong>Priorizar y estimar</strong>: Los clientes asignan prioridades y el equipo estima el esfuerzo necesario.</li></ul></li></ol><ol type="1" id="a09dc647-0689-4da5-8c1f-481821fe52c4" class="numbered-list" start="2"><li><strong>Diseño (Design)</strong>:<ul id="998bf3b6-a108-4261-8e06-9927002b6902" class="bulleted-list"><li style="list-style-type:disc"><strong>Mantenlo sencillo (Keep it Simple)</strong>: Crear diseños sencillos que cumplan con los requisitos inmediatos.</li></ul><ul id="f6b80cd2-cd24-4828-a3ed-46ca1fcd8bb1" class="bulleted-list"><li style="list-style-type:disc"><strong>Tarjetas CRC</strong>: Usar tarjetas CRC (Clase-Responsabilidad-Colaborador) para organizar las clases orientadas a objetos.</li></ul><ul id="d27420c3-032a-41bc-b9cf-df765fae6683" class="bulleted-list"><li style="list-style-type:disc"><strong>Prototipos y soluciones en punta</strong>: Crear prototipos para resolver problemas de diseño difíciles.</li></ul><ul id="69dc67bd-295c-426b-942a-988f7074c6bd" class="bulleted-list"><li style="list-style-type:disc"><strong>Rediseño (Refactoring)</strong>: Mejorar la estructura interna del código sin cambiar su funcionalidad externa.</li></ul></li></ol><ol type="1" id="81c92131-79ba-4934-8ad3-b12d77934f51" class="numbered-list" start="3"><li><strong>Codificación (Coding)</strong>:<ul id="10c34d59-6ad0-43ad-9ec9-646e0f72a7b9" class="bulleted-list"><li style="list-style-type:disc"><strong>Pruebas unitarias</strong>: Desarrollar pruebas unitarias antes de la codificación.</li></ul><ul id="1646157a-4943-45b8-b053-b1745a6f1e09" class="bulleted-list"><li style="list-style-type:disc"><strong>Programación por parejas (Pair Programming)</strong>: Dos desarrolladores trabajan juntos en una estación de trabajo.</li></ul><ul id="771ab390-a193-4da9-8925-9c7a36da3c95" class="bulleted-list"><li style="list-style-type:disc"><strong>Integración continua</strong>: Integrar el código de manera continua para evitar problemas de compatibilidad.</li></ul></li></ol><ol type="1" id="dce2e8a4-a002-4f20-92c1-54f44e49f732" class="numbered-list" start="4"><li><strong>Pruebas (Testing)</strong>:<ul id="13a18372-59f3-459c-acac-277b5be65bcb" class="bulleted-list"><li style="list-style-type:disc"><strong>Pruebas automatizadas</strong>: Ejecutar pruebas unitarias de forma automatizada.</li></ul><ul id="cfa42d84-80bb-4bad-8b59-03bc5f62e0fe" class="bulleted-list"><li style="list-style-type:disc"><strong>Pruebas de aceptación</strong>: Pruebas especificadas por el cliente para validar la funcionalidad del sistema.</li></ul></li></ol><h3 id="f5abab12-6620-4ead-9a83-9c2c9221c3a3" class="">Ventajas de XP</h3><ol type="1" id="1e8821a2-b74b-46a3-905a-fc7e9db4b867" class="numbered-list" start="1"><li><strong>Alta calidad del software</strong>: Las pruebas continuas y el rediseño aseguran un código limpio y eficiente.</li></ol><ol type="1" id="8940c704-b0d4-4d52-ab49-338c6d3c482c" class="numbered-list" start="2"><li><strong>Flexibilidad y adaptabilidad</strong>: Permite ajustes rápidos a los cambios en los requisitos del cliente.</li></ol><ol type="1" id="372cba24-6293-4900-b7a5-68ba3bc4bb89" class="numbered-list" start="3"><li><strong>Mejora continua</strong>: La retroalimentación constante y las retrospectivas fomentan la mejora continua del proceso y del producto.</li></ol><ol type="1" id="9e52bccc-cba1-4dd1-9d25-9107a0d0dd11" class="numbered-list" start="4"><li><strong>Comunicación efectiva</strong>: Fomenta la colaboración estrecha entre los desarrolladores y el cliente.</li></ol><ol type="1" id="173659ba-905b-498a-b132-c177a2a02258" class="numbered-list" start="5"><li><strong>Entrega rápida</strong>: La planificación iterativa y los incrementos de software permiten entregas frecuentes y rápidas.</li></ol><h3 id="b0f121bb-65fb-4f9c-b619-d4b3acabb3c3" class="">Aplicaciones de XP</h3><p id="7a53d4c7-c3a9-4f1a-976b-636310a415b6" class="">XP es ideal para:</p><ol type="1" id="ada8347c-2b28-46e6-bce2-54f826db7aa2" class="numbered-list" start="1"><li><strong>Proyectos con requisitos cambiantes</strong>: Donde los cambios en los requisitos son frecuentes y necesitan ser incorporados rápidamente.</li></ol><ol type="1" id="6aa070de-5c05-49e9-9c8e-a4e14f6e0e2a" class="numbered-list" start="2"><li><strong>Desarrollos de software en equipos pequeños a medianos</strong>: Especialmente cuando la colaboración y la comunicación directa son esenciales.</li></ol><ol type="1" id="d75ead2f-c96d-4948-8de6-d4167bc00ee0" class="numbered-list" start="3"><li><strong>Entornos de desarrollo con alta incertidumbre</strong>: Donde la capacidad de adaptarse rápidamente a los cambios es crucial.</li></ol><ol type="1" id="05078c53-2558-430f-9eba-30431cf67eab" class="numbered-list" start="4"><li><strong>Proyectos que requieren alta calidad del código</strong>: Debido a la enfática en pruebas continuas y rediseño.</li></ol><p id="f9e9c0ee-1555-4db8-b2bf-e32f634766d8" class="">
+</p><p id="ea2442cc-59b3-4165-80d3-ac78b3057983" class="">
+</p><figure id="bb87b6a3-f3a7-4da3-8cd7-199768beec6e" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%208.png"><img style="width:810px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%208.png"/></a></figure><h2 id="27b15a29-22e0-497a-aa2a-2a5172a1367d" class="">17 Proceso personal de software (PPS) </h2><p id="91569445-a7c8-494e-b9c8-54b9b15c93e6" class="">El Proceso Personal del Software (PPS) es una metodología de desarrollo de software creada por Watts Humphrey que se enfoca en la mejora continua del desempeño individual de los desarrolladores. El PPS enfatiza la medición detallada del trabajo y la calidad, responsabilizando al desarrollador de la planificación y control de la calidad del software que produce. El objetivo es mejorar la eficacia y la eficiencia mediante un enfoque disciplinado basado en la medición.</p><h3 id="c18fab5a-becf-43eb-b210-f78ab64b9a8d" class="">Fases del PPS</h3><ol type="1" id="574db832-9402-4fc6-92c3-ebb715217bf4" class="numbered-list" start="1"><li><strong>Planeación</strong>:<ul id="fc646b7b-06d4-44f7-8290-16f6075a02e7" class="bulleted-list"><li style="list-style-type:disc"><strong>Aislar los requerimientos</strong>: Identificar y documentar las necesidades del cliente.</li></ul><ul id="13500ce4-f3a9-4f3e-920f-57bbb686af4e" class="bulleted-list"><li style="list-style-type:disc"><strong>Desarrollar estimaciones</strong>: Calcular el tamaño del proyecto, recursos necesarios y número de defectos esperados.</li></ul><ul id="8a9f2eb5-97f3-470a-9ea5-009235638446" class="bulleted-list"><li style="list-style-type:disc"><strong>Registrar mediciones</strong>: Utilizar hojas de trabajo o plantillas para documentar las estimaciones y tareas.</li></ul><ul id="18452fad-80d4-4478-af1e-27159e8711ed" class="bulleted-list"><li style="list-style-type:disc"><strong>Crear un programa</strong>: Establecer un cronograma de actividades para el proyecto.</li></ul></li></ol><ol type="1" id="7e8ded47-7d5d-4750-94eb-805d8257ef35" class="numbered-list" start="2"><li><strong>Diseño de alto nivel</strong>:<ul id="bf119ec7-ffe6-435d-b805-65a982a9ba7b" class="bulleted-list"><li style="list-style-type:disc"><strong>Especificaciones externas</strong>: Definir las especificaciones para cada componente.</li></ul><ul id="a9cf1aa2-7739-44c3-91f4-3031c6708782" class="bulleted-list"><li style="list-style-type:disc"><strong>Diseño de componentes</strong>: Crear un diseño detallado de cada componente del sistema.</li></ul><ul id="7b33a249-dace-4e30-8974-165cc8b6a702" class="bulleted-list"><li style="list-style-type:disc"><strong>Prototipos</strong>: Desarrollar prototipos si hay incertidumbre en el diseño.</li></ul><ul id="1432f2af-c5aa-4395-8c6b-bcc13a436f86" class="bulleted-list"><li style="list-style-type:disc"><strong>Registro y seguimiento</strong>: Documentar todos los aspectos relevantes del diseño.</li></ul></li></ol><ol type="1" id="3fb00442-75d6-4fd6-b019-a3517ca9abb5" class="numbered-list" start="3"><li><strong>Revisión del diseño de alto nivel</strong>:<ul id="04d958d2-2957-451d-9772-af5248da77e4" class="bulleted-list"><li style="list-style-type:disc"><strong>Verificación formal</strong>: Aplicar métodos formales para descubrir errores en el diseño.</li></ul><ul id="807e1547-18e2-49ab-b24a-69010916851e" class="bulleted-list"><li style="list-style-type:disc"><strong>Mantener mediciones</strong>: Registrar todas las tareas y resultados importantes.</li></ul></li></ol><ol type="1" id="06a9ffbf-d347-4d8f-8b69-c06ae377b935" class="numbered-list" start="4"><li><strong>Desarrollo</strong>:<ul id="a74dbe81-47eb-4b87-be0a-75b877372d1f" class="bulleted-list"><li style="list-style-type:disc"><strong>Revisar y mejorar el diseño</strong>: Refinar el diseño de los componentes.</li></ul><ul id="15bb761c-ab8d-4030-baa9-f0155764eb01" class="bulleted-list"><li style="list-style-type:disc"><strong>Generar código</strong>: Escribir, revisar, compilar y probar el código.</li></ul><ul id="7cbc41a6-3621-4090-861b-6b892cb82397" class="bulleted-list"><li style="list-style-type:disc"><strong>Registrar mediciones</strong>: Documentar todas las tareas y resultados del trabajo.</li></ul></li></ol><ol type="1" id="e439decf-cef1-4b8c-ac30-9cb93edf6989" class="numbered-list" start="5"><li><strong>Post mórtem</strong>:<ul id="d434ce79-3a8b-41f8-8d4c-4820ac788bfc" class="bulleted-list"><li style="list-style-type:disc"><strong>Evaluación del proceso</strong>: Analizar la eficacia del proceso mediante medidas y mediciones.</li></ul><ul id="ea103724-d10f-488d-9701-f1a275be1c19" class="bulleted-list"><li style="list-style-type:disc"><strong>Análisis estadístico</strong>: Utilizar métodos estadísticos para interpretar los datos.</li></ul><ul id="e47fb3c8-a988-48c1-970e-7e5969b82d6f" class="bulleted-list"><li style="list-style-type:disc"><strong>Mejora continua</strong>: Ajustar el proceso para mejorar su eficacia basado en el análisis.</li></ul></li></ol><h3 id="165cd19c-5e86-45e7-a0fc-9d4c16c016af" class="">Ventajas del PPS</h3><ol type="1" id="9d8ecb23-d2a1-4b44-b0a9-b6427ba4317c" class="numbered-list" start="1"><li><strong>Mejora continua</strong>: La retroalimentación y las mediciones constantes permiten ajustes continuos para mejorar la eficacia y eficiencia.</li></ol><ol type="1" id="5a9e8bce-cfbf-40ee-8584-ba8b1c310ae9" class="numbered-list" start="2"><li><strong>Responsabilidad individual</strong>: Cada desarrollador es responsable de la calidad y planificación de su trabajo.</li></ol><ol type="1" id="6b1db098-3ed6-4555-ae0a-97dc5b70adf9" class="numbered-list" start="3"><li><strong>Detección temprana de errores</strong>: El enfoque en la verificación formal y las revisiones permite identificar y corregir errores tempranamente.</li></ol><ol type="1" id="f83a8d72-8701-438f-8be8-cd823095cb56" class="numbered-list" start="4"><li><strong>Documentación detallada</strong>: La medición y registro detallado facilitan el análisis y mejora del proceso.</li></ol><h3 id="6cd89df3-9b2c-444d-854b-a38f311319e8" class="">Aplicaciones del PPS</h3><ol type="1" id="a89b1416-a448-4df8-a067-3edb6c791a6d" class="numbered-list" start="1"><li><strong>Desarrollo individual</strong>: Ideal para desarrolladores que buscan mejorar su desempeño personal y calidad del trabajo.</li></ol><ol type="1" id="e75806dc-b571-43d8-9e57-b9098a496ce2" class="numbered-list" start="2"><li><strong>Proyectos con alta exigencia de calidad</strong>: Adecuado para entornos donde la calidad del software es crítica.</li></ol><ol type="1" id="4887a233-f1c7-4d5d-9230-4a6e7ffbc0fa" class="numbered-list" start="3"><li><strong>Ingeniería de software disciplinada</strong>: Beneficioso en organizaciones que valoran la medición y la mejora continua en el desarrollo de software.</li></ol><ol type="1" id="f3a73096-7649-4a5b-b604-727520889435" class="numbered-list" start="4"><li><strong>Formación y capacitación</strong>: Utilizado en programas de formación para inculcar prácticas disciplinadas y meticulosas en los ingenieros de software.</li></ol><figure id="91091b89-780a-4ff1-84b9-532332f5e644" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%209.png"><img style="width:800px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%209.png"/></a></figure><p id="3dd9eab1-f405-4428-b5b2-48abb23bb640" class="">
+</p><h2 id="20a0dc1a-8ff9-41fe-ba82-cd1b4ccd2d04" class="">18 Modelo de equipo personal </h2><p id="be8e1c5b-1629-4f22-b26f-e60d2e8eeb5d" class="">El Proceso del Equipo de Software (PES), desarrollado por Watts Humphrey, es una extensión del Proceso Personal del Software (PPS) y se centra en la formación y gestión de equipos autodirigidos para la creación de software de alta calidad. A continuación, se presenta un análisis detallado de las características, objetivos, fases y beneficios del PES.</p><h3 id="6a488f2a-15f0-48a9-9f32-77b369a469e9" class="">Objetivos del PES</h3><ol type="1" id="b06eccfb-1727-4cf1-8dc5-c0f644ee4e52" class="numbered-list" start="1"><li><strong>Formar equipos autodirigidos</strong>:<ul id="fb15f5cd-624e-486f-94b7-2b003ce0c975" class="bulleted-list"><li style="list-style-type:disc">Equipos de 3 a 20 ingenieros que planifiquen y gestionen su trabajo.</li></ul><ul id="0538d31f-9aa9-4b67-a114-0ab4d30bdc92" class="bulleted-list"><li style="list-style-type:disc">Establecer metas y ser responsables de sus procesos y planes.</li></ul></li></ol><ol type="1" id="75a86868-538e-4cc9-9fc9-0c6d47e83228" class="numbered-list" start="2"><li><strong>Mostrar a los gerentes cómo dirigir y motivar equipos</strong>:<ul id="a856a70d-b778-4c86-addb-27a529c52c91" class="bulleted-list"><li style="list-style-type:disc">Ayudar a los gerentes a mantener un rendimiento máximo de los equipos.</li></ul></li></ol><ol type="1" id="8f064c33-e19a-4d3f-b546-f7a0b9bb16f1" class="numbered-list" start="3"><li><strong>Acelerar la mejora del proceso del software</strong>:<ul id="3c94f287-aa00-4359-a265-570968c52921" class="bulleted-list"><li style="list-style-type:disc">Hacer del modelo de madurez de la capacidad (CMM) nivel 5 el comportamiento normal y esperado.</li></ul></li></ol><ol type="1" id="654586f1-bdba-46fe-8226-cf5a7e97f662" class="numbered-list" start="4"><li><strong>Proporcionar guías a organizaciones maduras</strong>:<ul id="91a97ce8-10fa-400f-84cc-1923bbdfd5fd" class="bulleted-list"><li style="list-style-type:disc">Brindar orientación para la mejora continua del proceso.</li></ul></li></ol><ol type="1" id="9f773f9c-d68b-4708-9b1a-b2e298f93094" class="numbered-list" start="5"><li><strong>Facilitar la enseñanza universitaria de habilidades de equipo</strong>:<ul id="a65e0cfa-59a3-4435-bfe8-f9c17670e8db" class="bulleted-list"><li style="list-style-type:disc">Enseñar habilidades de equipo con un nivel industrial.</li></ul></li></ol><h3 id="885754e6-b57d-4cb8-86d2-08350f88eb8c" class="">Características del PES</h3><ul id="2e47c480-9dd8-4dae-bbb7-6fc09d612738" class="bulleted-list"><li style="list-style-type:disc"><strong>Equipos autodirigidos</strong>:<ul id="21c4eb43-cb22-459c-88f3-c175d8524881" class="bulleted-list"><li style="list-style-type:circle">Los equipos tienen una comprensión clara de sus metas y objetivos generales.</li></ul><ul id="1975956f-5f9b-4cdd-b9d6-6d1f2b8e4f8f" class="bulleted-list"><li style="list-style-type:circle">Cada miembro tiene roles y responsabilidades definidas.</li></ul><ul id="6f071c72-3090-4148-b4fc-16be92da1526" class="bulleted-list"><li style="list-style-type:circle">Seguimiento cuantitativo de la productividad y calidad del proyecto.</li></ul><ul id="4e2a27bd-f952-404f-ba85-fc06777cc0b6" class="bulleted-list"><li style="list-style-type:circle">Definición de procesos y estrategias de equipo.</li></ul><ul id="5942ed70-6b80-44d6-8dcb-c66e21d61b06" class="bulleted-list"><li style="list-style-type:circle">Evaluación y gestión continua del riesgo.</li></ul><ul id="b4e50704-536b-4136-89cc-f50310035d21" class="bulleted-list"><li style="list-style-type:circle">Seguimiento y reporte del estado del proyecto.</li></ul></li></ul><h3 id="e9774a65-7e82-44a4-a3c2-fdfb29aa7bd0" class="">Fases del PES</h3><ol type="1" id="40558158-3b17-49c8-83ae-40e9c912a727" class="numbered-list" start="1"><li><strong>Inicio del proyecto</strong>:<ul id="c33125a8-a72f-46b4-9020-d17338892e2b" class="bulleted-list"><li style="list-style-type:disc">Planificación y preparación inicial del proyecto.</li></ul></li></ol><ol type="1" id="2ecd2eac-2256-42f1-92d8-ab826b256678" class="numbered-list" start="2"><li><strong>Diseño de alto nivel</strong>:<ul id="51eb7501-eb59-4bbb-9966-d3b569d28bd4" class="bulleted-list"><li style="list-style-type:disc">Definición y especificación de los componentes del sistema.</li></ul></li></ol><ol type="1" id="93cf25bb-4d8e-44bd-aeef-6f542c62c8b7" class="numbered-list" start="3"><li><strong>Implementación</strong>:<ul id="57397b4e-2146-45bc-b175-b868010928bd" class="bulleted-list"><li style="list-style-type:disc">Desarrollo y codificación de los componentes del sistema.</li></ul></li></ol><ol type="1" id="757249af-ad2b-470d-942b-f4cb560b8adc" class="numbered-list" start="4"><li><strong>Integración y pruebas</strong>:<ul id="c0596c44-d0bc-4322-bf35-680d3fa53e86" class="bulleted-list"><li style="list-style-type:disc">Integración de los componentes y realización de pruebas para asegurar la calidad.</li></ul></li></ol><ol type="1" id="522b02f7-129b-4bad-b1ba-37c2881b190a" class="numbered-list" start="5"><li><strong>Post mórtem</strong>:<ul id="61c0af47-9b83-4ec2-ae69-38b385a5a2cd" class="bulleted-list"><li style="list-style-type:disc">Evaluación y análisis del proceso y el producto.</li></ul><ul id="b0cf5f89-191e-4cda-8b78-1d409e8979ff" class="bulleted-list"><li style="list-style-type:disc">Identificación de áreas de mejora para futuros proyectos.</li></ul></li></ol><h3 id="7ca3988c-ad05-491b-b4fe-14023110b418" class="">Herramientas y técnicas del PES</h3><ul id="22ad31b0-b4ab-46f5-8d3b-b7e84104b693" class="bulleted-list"><li style="list-style-type:disc"><strong>Scripts, formatos y estándares</strong>:<ul id="1b9c58e4-f4a5-4893-b4bf-9b89301d33ae" class="bulleted-list"><li style="list-style-type:circle">Guían a los miembros del equipo en actividades específicas del proceso.</li></ul><ul id="2c394588-985c-4260-b930-d13abf3a31b4" class="bulleted-list"><li style="list-style-type:circle">Incluyen tareas detalladas como planeación del desarrollo, desarrollo de requerimientos, administración de la configuración del software y pruebas unitarias.</li></ul></li></ul><h3 id="ca8a85bd-d772-4f48-9a8c-a7ec5b0fc0cc" class="">Beneficios del PES</h3><ul id="802b1e18-7f78-4b8f-b7e8-49b57304ec1e" class="bulleted-list"><li style="list-style-type:disc"><strong>Mejora continua</strong>:<ul id="d8ae8be2-e2b7-4f65-940a-9bd7d17b85c9" class="bulleted-list"><li style="list-style-type:circle">Promueve la evaluación y ajuste constante del proceso para mejorar la productividad y calidad del software.</li></ul></li></ul><ul id="d86e1670-82ee-4295-8cc4-ffa9e6d9bc5a" class="bulleted-list"><li style="list-style-type:disc"><strong>Equipos autodirigidos</strong>:<ul id="f8088368-7fae-47f5-9d61-1bd6b9834135" class="bulleted-list"><li style="list-style-type:circle">Fomenta la autonomía y responsabilidad dentro del equipo, lo que puede resultar en mayor motivación y mejor rendimiento.</li></ul></li></ul><ul id="f1f70e4f-7513-4377-94fb-9ff1e27b9774" class="bulleted-list"><li style="list-style-type:disc"><strong>Medición cuantitativa</strong>:<ul id="357d48a5-9d29-4edf-bb80-4fd4f51ba646" class="bulleted-list"><li style="list-style-type:circle">Proporciona datos precisos que permiten un seguimiento y análisis detallado del proyecto.</li></ul></li></ul><ul id="d3d98357-227e-40a0-b128-244a82e7f294" class="bulleted-list"><li style="list-style-type:disc"><strong>Enfoque disciplinado</strong>:<ul id="a1fb3425-4494-4a1c-a71e-fab1983d24c1" class="bulleted-list"><li style="list-style-type:circle">Al igual que el PPS, el PES sigue un enfoque riguroso y metódico en la ingeniería de software.</li></ul></li></ul><h3 id="0fa4bed7-864e-4f21-8494-667ab245db23" class="">Aplicaciones del PES</h3><ul id="c1220ee2-e4aa-441d-bf8f-04cf20e564a5" class="bulleted-list"><li style="list-style-type:disc"><strong>Proyectos industriales</strong>:<ul id="c93f5e82-2b46-4856-922f-73d485b0b05a" class="bulleted-list"><li style="list-style-type:circle">Adecuado para proyectos que requieren la colaboración de múltiples profesionales y donde la calidad del software es crítica.</li></ul></li></ul><ul id="986bd4a6-f676-43f1-b2d0-d98ae2f24292" class="bulleted-list"><li style="list-style-type:disc"><strong>Organizaciones maduras</strong>:<ul id="1f8785f8-58e9-4086-b2ee-fc2b0f6a053a" class="bulleted-list"><li style="list-style-type:circle">Beneficioso para organizaciones con procesos establecidos que buscan mejorar continuamente.</li></ul></li></ul><ul id="93719993-9a3c-4387-812c-ce287399f636" class="bulleted-list"><li style="list-style-type:disc"><strong>Formación y capacitación</strong>:<ul id="e6890a5b-5fa3-4280-b623-a581418cafd8" class="bulleted-list"><li style="list-style-type:circle">Utilizado en entornos educativos para enseñar habilidades de trabajo en equipo y gestión de proyectos.</li></ul><figure id="3b72cfbe-f6bc-407d-9857-bd54a5d6ce69" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%2010.png"><img style="width:689px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%2010.png"/></a></figure><p id="5aedfb43-39f2-405d-ae41-a70abe7cb893" class="">
+</p><h2 id="bca150a6-b052-4ee8-8497-c6c5d2df807f" class="">SCRUM </h2><p id="76620e9d-0c76-4052-9f0f-11b197a5567a" class="">
+</p><p id="6c3a652d-ee63-4d56-82e1-644cbec8d8a2" class="">Scrum es un marco de trabajo ágil ampliamente utilizado en el desarrollo de software para gestionar proyectos complejos. Su principal objetivo es mejorar la productividad y la calidad del software mediante la colaboración, la autoorganización del equipo y la iteración constante. A continuación, se analiza Scrum en términos de sus principios, roles, eventos, artefactos, ventajas y aplicaciones, comparándolo con el Proceso Personal del Software (PPS) y el Proceso del Equipo de Software (PES) cuando sea relevante.</p><h3 id="7d6cd6ce-0a2b-44de-9b5d-d29b5e9d5d63" class="">Principios de Scrum</h3><ol type="1" id="ec7094e1-7921-416d-8c13-847a78ad0e5d" class="numbered-list" start="1"><li><strong>Transparencia</strong>: Todos los aspectos del proceso de trabajo deben ser visibles para aquellos responsables del resultado. Esto incluye el progreso del proyecto, problemas y cualquier información relevante.</li></ol><ol type="1" id="07159b49-0dd2-4a63-9cdd-b055cefdecc9" class="numbered-list" start="2"><li><strong>Inspección</strong>: Los miembros del equipo deben revisar regularmente el progreso hacia un objetivo para detectar variaciones no deseadas.</li></ol><ol type="1" id="7797aec0-007b-4e9e-925f-afda00f91b92" class="numbered-list" start="3"><li><strong>Adaptación</strong>: Los procesos y prácticas deben ajustarse en función de la retroalimentación obtenida durante las inspecciones.</li></ol><h3 id="49ca9ec6-0201-414b-b606-e35ff132a961" class="">Roles en Scrum</h3><ol type="1" id="78dd420e-522b-49bd-9d70-911b06900c41" class="numbered-list" start="1"><li><strong>Product Owner</strong>:<ul id="45179ff6-0f9f-4329-a7ba-b770bef8377d" class="bulleted-list"><li style="list-style-type:disc">Define la visión del producto y prioriza el Backlog del Producto.</li></ul><ul id="dd20357a-b386-4bae-8d72-9f3f843ea4db" class="bulleted-list"><li style="list-style-type:disc">Asegura que el equipo trabaje en las historias de usuario que generen más valor para el negocio.</li></ul></li></ol><ol type="1" id="29430576-f3d2-4b6b-a5e6-24c4d430216a" class="numbered-list" start="2"><li><strong>Scrum Master</strong>:<ul id="5086609d-5051-4cbb-aab7-29b64ef8fe0c" class="bulleted-list"><li style="list-style-type:disc">Facilita el proceso Scrum y elimina obstáculos que afectan al equipo.</li></ul><ul id="86760f39-cb3a-4072-9b49-c00b35cb77b3" class="bulleted-list"><li style="list-style-type:disc">Asegura que el equipo entienda y siga los principios y prácticas de Scrum.</li></ul></li></ol><ol type="1" id="823c31e9-0ae0-44bb-a092-5b9597094eda" class="numbered-list" start="3"><li><strong>Equipo de desarrollo</strong>:<ul id="e4c1be52-fadf-445b-bae0-8a12cff439e2" class="bulleted-list"><li style="list-style-type:disc">Grupo multifuncional de profesionales responsables de entregar incrementos de software potencialmente utilizables al final de cada sprint.</li></ul><ul id="c8c7cac9-4455-46de-99e0-a1d898853777" class="bulleted-list"><li style="list-style-type:disc">Autoorganizado y con total autoridad sobre cómo cumplir con los objetivos del sprint.</li></ul></li></ol><h3 id="f57ccf5a-e835-4685-97d0-5fb8a86927bb" class="">Eventos en Scrum</h3><ol type="1" id="cfc27240-1735-4c04-aca5-aadffed43d84" class="numbered-list" start="1"><li><strong>Sprint</strong>:<ul id="dac697ec-76c5-465e-bd65-1a369b1f7aff" class="bulleted-list"><li style="list-style-type:disc">Periodo de trabajo de 1 a 4 semanas en el que se crea un incremento del producto.</li></ul><ul id="ddaa9a76-d8f8-481f-91d7-26883b58518c" class="bulleted-list"><li style="list-style-type:disc">Cada sprint tiene un objetivo definido y produce un incremento utilizable del producto.</li></ul></li></ol><ol type="1" id="016a442a-2a5c-4bb5-81d8-04807fede211" class="numbered-list" start="2"><li><strong>Planificación del Sprint</strong>:<ul id="d4660eab-1786-43d1-91ad-87d2365afae5" class="bulleted-list"><li style="list-style-type:disc">Reunión al inicio del sprint donde se define el trabajo a realizar y cómo se llevará a cabo.</li></ul></li></ol><ol type="1" id="421d6e6c-0a96-439d-9e33-df0d08790206" class="numbered-list" start="3"><li><strong>Daily Scrum (Reunión diaria)</strong>:<ul id="2383d987-ce1b-4fc2-92f1-ef1a0f191ffd" class="bulleted-list"><li style="list-style-type:disc">Reunión diaria de 15 minutos para sincronizar actividades y planificar el trabajo del día.</li></ul></li></ol><ol type="1" id="d73d5abd-e082-4f25-bc80-969b74de2eff" class="numbered-list" start="4"><li><strong>Revisión del Sprint</strong>:<ul id="bf360111-13b1-48de-9d6e-8e74bad29e23" class="bulleted-list"><li style="list-style-type:disc">Reunión al final del sprint donde el equipo presenta el trabajo completado al Product Owner y otros stakeholders.</li></ul></li></ol><ol type="1" id="13651b2b-d80a-4dfd-816b-b189cc6ddb0b" class="numbered-list" start="5"><li><strong>Retrospectiva del Sprint</strong>:<ul id="5c8781b8-21b4-4621-b955-f1a4a4529c51" class="bulleted-list"><li style="list-style-type:disc">Reunión para reflexionar sobre el sprint finalizado y planificar mejoras para el siguiente.</li></ul></li></ol><h3 id="f5d433a8-f49f-4e26-b78e-7be8e6b8b9b7" class="">Artefactos en Scrum</h3><ol type="1" id="abbdec7a-9903-450f-ba81-7e063f7a9048" class="numbered-list" start="1"><li><strong>Product Backlog</strong>:<ul id="e2416d64-8f62-42c6-a810-7ddb431f58d4" class="bulleted-list"><li style="list-style-type:disc">Lista priorizada de todo lo que podría ser necesario en el producto.</li></ul><ul id="272fa241-6fac-4b63-a1c2-e81fe181e119" class="bulleted-list"><li style="list-style-type:disc">El Product Owner es responsable de mantener y priorizar este backlog.</li></ul></li></ol><ol type="1" id="b771c661-b2b3-46bb-95ba-745a3b6e3191" class="numbered-list" start="2"><li><strong>Sprint Backlog</strong>:<ul id="cc3c7311-3fad-4b1f-9c85-f5af17cc556a" class="bulleted-list"><li style="list-style-type:disc">Conjunto de elementos del Product Backlog seleccionados para el sprint, junto con un plan para entregarlos.</li></ul></li></ol><ol type="1" id="44acdfc8-12ec-4c5b-be77-eefe32eb32ef" class="numbered-list" start="3"><li><strong>Incremento</strong>:<ul id="b0c8833f-04b8-4925-a406-f8361cf64766" class="bulleted-list"><li style="list-style-type:disc">La suma de todos los elementos del Product Backlog completados durante un sprint y en sprints anteriores.</li></ul></li></ol><h3 id="0d0f0109-7b3a-4c94-8f6e-7779e840141a" class="">Ventajas de Scrum</h3><ol type="1" id="cd846ba5-240b-410f-975a-35722c2cd19f" class="numbered-list" start="1"><li><strong>Mejora continua</strong>:<ul id="b98ca35d-b787-41d3-bca8-30ca35ae04dd" class="bulleted-list"><li style="list-style-type:disc">Las retrospectivas y la iteración constante permiten ajustes continuos y mejoras en el proceso y el producto.</li></ul></li></ol><ol type="1" id="3957b211-b8cd-43d7-ace6-258a6b063ca7" class="numbered-list" start="2"><li><strong>Responsabilidad y transparencia</strong>:<ul id="f90062cc-132f-4d9a-b621-a7b27321e71c" class="bulleted-list"><li style="list-style-type:disc">Roles claros y reuniones frecuentes aseguran que todos los miembros del equipo estén alineados y responsables del progreso.</li></ul></li></ol><ol type="1" id="c6f3da85-b477-453a-a57d-e4e334936155" class="numbered-list" start="3"><li><strong>Flexibilidad y adaptabilidad</strong>:<ul id="801ef5e6-c89e-4b21-88cc-8f1c5b5e51e2" class="bulleted-list"><li style="list-style-type:disc">La capacidad de adaptarse rápidamente a cambios en los requisitos del proyecto y prioridades del negocio.</li></ul></li></ol><ol type="1" id="e5d88bba-023e-433a-911a-3326d48d0e04" class="numbered-list" start="4"><li><strong>Entrega rápida de valor</strong>:<ul id="f3338efa-6f60-4da7-bf4c-4fba479bf0a9" class="bulleted-list"><li style="list-style-type:disc">El enfoque en sprints cortos asegura que se entreguen incrementos de valor de manera regular y frecuente.</li></ul></li></ol><h3 id="483aecb1-133c-4bb9-a3aa-4a792544b8e5" class="">Aplicaciones de Scrum</h3><ul id="815ba57d-444d-4ca6-be01-b38e5c03ee74" class="bulleted-list"><li style="list-style-type:circle"><strong>Desarrollo de software</strong>:<ul id="ff56a156-3907-4995-b2a3-0ad7c3801511" class="bulleted-list"><li style="list-style-type:square">Amplio uso en proyectos de desarrollo de software donde los requisitos pueden cambiar rápidamente.</li></ul></li></ul><ul id="af7e2c18-641e-4536-9aa1-92331147347a" class="bulleted-list"><li style="list-style-type:circle"><strong>Proyectos de TI y tecnología</strong>:<ul id="8d7b5044-c321-4a33-97c6-215a6b4134b6" class="bulleted-list"><li style="list-style-type:square">Adecuado para cualquier tipo de proyecto tecnológico que requiera una entrega incremental y colaboración cercana del equipo.</li></ul></li></ul><ul id="b4f772e4-aaab-4697-928b-cdd3183d6e0c" class="bulleted-list"><li style="list-style-type:circle"><strong>Otros sectores</strong>:<ul id="87a6814d-2860-4e71-9f80-d11444a9f883" class="bulleted-list"><li style="list-style-type:square">Adoptado también en sectores como marketing, educación y desarrollo de productos no relacionados con software.</li></ul></li></ul><h3 id="d84d3ddb-3ab8-45a2-9e35-e5bbb8aeabcb" class="">Comparación con PPS y PES</h3><ul id="04a3a8f1-2842-4560-8185-de25731dc779" class="bulleted-list"><li style="list-style-type:circle"><strong>Enfoque en equipo</strong>:<ul id="c87ff81d-d019-4218-9856-cc8f13b02535" class="bulleted-list"><li style="list-style-type:square">Similar al PES, Scrum enfatiza la colaboración y la autoorganización del equipo, mientras que el PPS se centra más en la mejora individual.</li></ul></li></ul><ul id="7658e76c-32e3-48a3-b960-584562e3a53e" class="bulleted-list"><li style="list-style-type:circle"><strong>Ciclos iterativos</strong>:<ul id="935b62e3-1e56-4699-82f2-4e1e9ef186ad" class="bulleted-list"><li style="list-style-type:square">Tanto Scrum como el PPS y el PES promueven la iteración y la retroalimentación continua para mejorar el proceso y el producto.</li></ul></li></ul><ul id="e2e5dd29-06ef-4353-a8ed-92c4f7bb0453" class="bulleted-list"><li style="list-style-type:circle"><strong>Roles y responsabilidades</strong>:<ul id="761f7815-d123-459b-ae2c-1ed0a2d0c6f6" class="bulleted-list"><li style="list-style-type:square">Scrum define roles específicos (Product Owner, Scrum Master, Equipo de desarrollo), mientras que en el PES se define la responsabilidad del equipo autodirigido. En el PPS, el individuo es responsable de su propio trabajo y mejora.</li></ul></li></ul><ul id="54242356-7b1d-4bc8-8463-0eb5fd854806" class="bulleted-list"><li style="list-style-type:circle"><strong>Medición y mejora continua</strong>:<ul id="2bad427a-0f00-48a1-9d34-f445f5c932db" class="bulleted-list"><li style="list-style-type:square">Al igual que el PPS y el PES, Scrum también valora la medición y la mejora continua, con eventos específicos para la reflexión y ajuste del proceso (como las retrospectivas).</li></ul></li></ul><figure id="719d191d-242c-4dcd-a841-41dd93cff6be" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%2011.png"><img style="width:1610px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%2011.png"/></a></figure><p id="8dd1010e-3d49-4f6e-9c23-1b2ef5aff5f8" class="">
+</p><h2 id="ee4864cd-6cae-4a61-bc91-cff7b31af390" class="">ICONIX</h2><p id="3e98b3a2-ace3-428b-ac24-773192ce779a" class="">ICONIX es una metodología de desarrollo de software orientada a objetos que se enfoca en un proceso pragmático y ligero para la creación de sistemas de software. A continuación, se presenta un análisis detallado de ICONIX, sus fases, ventajas, herramientas y cómo se compara con otros enfoques como Scrum, PPS y PES.</p><h3 id="bb3e5ac5-f14f-4d23-a655-2ae594e3fabf" class="">Principios de ICONIX</h3><p id="b978d791-d2d7-454f-856c-39a23f79c6d6" class="">ICONIX se caracteriza por un enfoque dirigido y centrado en la producción de documentación suficiente para garantizar la claridad y precisión en el desarrollo del software. A diferencia de metodologías más pesadas o más ligeras, ICONIX busca un balance entre ambos extremos.</p><h3 id="368bc134-8ffe-4f97-9176-e857d6d9a2a2" class="">Fases de ICONIX</h3><ol type="1" id="f44a6e70-ffe4-435e-8c3b-7d329730db8d" class="numbered-list" start="1"><li><strong>Requerimientos</strong>:<ul id="ef361146-60c3-462c-8f66-a118e58cda3b" class="bulleted-list"><li style="list-style-type:disc"><strong>Modelo de Dominio</strong>: Creación de un modelo de dominio inicial que identifica los conceptos clave y sus relaciones.</li></ul><ul id="6283a4e7-3e39-4a0a-b3bc-c3f81b7867ce" class="bulleted-list"><li style="list-style-type:disc"><strong>Caso de Uso Inicial</strong>: Identificación y descripción de los casos de uso que capturan los requisitos funcionales del sistema.</li></ul></li></ol><ol type="1" id="4e433f65-830b-40b3-9b46-868792d0185b" class="numbered-list" start="2"><li><strong>Análisis y Diseño</strong>:<ul id="adb3124c-78f7-40eb-b75e-0fbb57d03847" class="bulleted-list"><li style="list-style-type:disc"><strong>Robustness Analysis</strong>: Análisis de robustez para validar y refinar los casos de uso. Este análisis asegura que los casos de uso sean completos y que el diseño del sistema sea robusto.</li></ul><ul id="8fda9485-c8c4-4425-95ae-e7d8f280a7ff" class="bulleted-list"><li style="list-style-type:disc"><strong>Diagramas de Secuencia</strong>: Creación de diagramas de secuencia para modelar las interacciones entre objetos.</li></ul><ul id="3f3d531a-49eb-435c-bbb2-476a11238e8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Clases de Diseño</strong>: Definición de las clases de diseño necesarias para implementar los casos de uso.</li></ul></li></ol><ol type="1" id="7480dfda-d6ee-487d-a2c6-57e0cdfffdd2" class="numbered-list" start="3"><li><strong>Implementación</strong>:<ul id="18c68c51-27b3-4cbe-adfa-7eeb2238c986" class="bulleted-list"><li style="list-style-type:disc"><strong>Codificación</strong>: Traducción de los modelos de diseño en código ejecutable.</li></ul><ul id="3adc5ddb-f8e5-4893-833f-bb54377334f2" class="bulleted-list"><li style="list-style-type:disc"><strong>Pruebas</strong>: Verificación del funcionamiento del sistema mediante pruebas unitarias y de integración.</li></ul></li></ol><ol type="1" id="1190d5dc-e829-474a-9503-ce57c0cc4480" class="numbered-list" start="4"><li><strong>Pruebas y Validación</strong>:<ul id="16b8cf6a-afa9-4ffa-a7d3-853b133ed1a5" class="bulleted-list"><li style="list-style-type:disc"><strong>Validación de Casos de Uso</strong>: Validación de que el sistema implementa correctamente los casos de uso definidos.</li></ul></li></ol><h3 id="609279f8-dba6-49db-9748-fa3ce5576b17" class="">Ventajas de ICONIX</h3><ol type="1" id="abe27eff-9b78-4d67-b37b-aa85963bc969" class="numbered-list" start="1"><li><strong>Enfoque pragmático</strong>:<ul id="cbb481a6-e3e2-4eaa-af19-6b746e743a70" class="bulleted-list"><li style="list-style-type:disc">ICONIX evita la sobrecarga de documentación innecesaria, centrándose en producir artefactos que realmente aporten valor al proyecto.</li></ul></li></ol><ol type="1" id="e5b5e4ea-a05a-408f-975a-36ad0761f612" class="numbered-list" start="2"><li><strong>Claridad en el diseño</strong>:<ul id="b0da8910-e59d-4267-8cbc-ddafdceece2c" class="bulleted-list"><li style="list-style-type:disc">El proceso de análisis de robustez y la creación de diagramas de secuencia aseguran que el diseño sea claro y bien definido antes de la implementación.</li></ul></li></ol><ol type="1" id="3546c2ae-4134-49c9-b4ca-8b5d08507c0e" class="numbered-list" start="3"><li><strong>Iteración controlada</strong>:<ul id="3fe4130a-59bb-449e-ae09-26e267edb4d0" class="bulleted-list"><li style="list-style-type:disc">Aunque no es tan iterativo como Scrum, ICONIX permite revisiones y refinamientos en sus fases para mejorar la precisión y calidad del producto.</li></ul></li></ol><ol type="1" id="ac0661c5-b439-4ccd-b4e9-c59d84ea22a4" class="numbered-list" start="4"><li><strong>Balance entre rigor y flexibilidad</strong>:<ul id="c655e950-8104-4ffd-8d4a-4b0dfffed94f" class="bulleted-list"><li style="list-style-type:disc">ICONIX ofrece un enfoque equilibrado entre metodologías ágiles y más formales, proporcionando suficiente estructura sin ser excesivamente pesado.</li></ul></li></ol><h3 id="438a325c-004a-409f-8272-ae03afa7b0f3" class="">Herramientas y técnicas de ICONIX</h3><ul id="5e351df6-ac28-4060-ba8d-97dda4a64ece" class="bulleted-list"><li style="list-style-type:circle"><strong>Modelo de Dominio</strong>: Representación conceptual de los principales conceptos y relaciones del sistema.</li></ul><ul id="8b782c08-5d21-4d1d-af30-1cb51139d29b" class="bulleted-list"><li style="list-style-type:circle"><strong>Casos de Uso</strong>: Descripciones de interacciones entre actores y el sistema para cumplir objetivos específicos.</li></ul><ul id="41610a40-dee1-4a1f-abeb-faefa042016e" class="bulleted-list"><li style="list-style-type:circle"><strong>Análisis de Robustez</strong>: Técnica para validar y refinar los casos de uso.</li></ul><ul id="90d62d00-e727-4d9e-a0d4-4561ae861275" class="bulleted-list"><li style="list-style-type:circle"><strong>Diagramas de Secuencia</strong>: Modelado de interacciones entre objetos para casos de uso específicos.</li></ul><ul id="5d315f66-1c94-40b3-ac4b-b1bc2999daaa" class="bulleted-list"><li style="list-style-type:circle"><strong>Clases de Diseño</strong>: Definición detallada de las clases necesarias para la implementación.</li></ul><h3 id="3b81e291-c787-4116-9180-e66be07e43b5" class="">Comparación con Scrum, PPS y PES</h3><ul id="10e0d47e-0dd7-4aa6-b083-e85d072e8e2a" class="bulleted-list"><li style="list-style-type:circle"><strong>Enfoque de equipo</strong>:<ul id="38d74fee-19d0-4e5b-b623-82a8fdea4bd0" class="bulleted-list"><li style="list-style-type:square">ICONIX no se centra específicamente en la autoorganización del equipo como Scrum o el PES, pero fomenta la claridad y colaboración a través de su enfoque en el análisis y diseño detallado.</li></ul></li></ul><ul id="f53f7f80-c938-49a9-9665-fc11f105fddc" class="bulleted-list"><li style="list-style-type:circle"><strong>Iteración y retroalimentación</strong>:<ul id="f1093c46-5a50-44fe-9aee-fdd104b25052" class="bulleted-list"><li style="list-style-type:square">ICONIX es menos iterativo que Scrum pero permite refinamientos en sus fases. PPS y PES también promueven la mejora continua, pero con diferentes grados de énfasis en la iteración y retroalimentación.</li></ul></li></ul><ul id="3f758faa-23c8-4b47-b31e-850fec38b24e" class="bulleted-list"><li style="list-style-type:circle"><strong>Documentación y diseño</strong>:<ul id="d96138a8-3a1c-4258-8fb0-ca3fd4881817" class="bulleted-list"><li style="list-style-type:square">ICONIX se sitúa en un punto intermedio entre metodologías ligeras como Scrum y metodologías más pesadas, proporcionando suficiente documentación y diseño sin sobrecargar al equipo. PPS y PES también valoran la documentación detallada, especialmente en el contexto de la mejora continua y la calidad.</li></ul></li></ul><ul id="cd47a43a-55d9-4ab0-89dd-ff0c43b56812" class="bulleted-list"><li style="list-style-type:circle"><strong>Roles y responsabilidades</strong>:<ul id="e88a2cee-536b-4e68-98e9-76ba127e9406" class="bulleted-list"><li style="list-style-type:square">A diferencia de Scrum, que define roles específicos (Product Owner, Scrum Master, Equipo de Desarrollo), ICONIX se centra más en las actividades de análisis y diseño sin roles específicos formales, similar al enfoque del PPS en la responsabilidad individual.</li></ul></li></ul><h3 id="17429bac-fa55-45d9-9758-e91bded0dca2" class="">Aplicaciones de ICONIX</h3><ul id="c5a9b6f2-412d-49e7-855b-ee10b7ea17e1" class="bulleted-list"><li style="list-style-type:circle"><strong>Proyectos de software orientados a objetos</strong>:<ul id="ec6217b4-0c6f-4f8e-a213-3f895956ee06" class="bulleted-list"><li style="list-style-type:square">Ideal para proyectos que benefician de un enfoque estructurado en el análisis y diseño.</li></ul></li></ul><ul id="c930bd74-54c8-436f-86ef-99ad4f306582" class="bulleted-list"><li style="list-style-type:circle"><strong>Sistemas de tamaño medio</strong>:<ul id="4f064294-ba02-40b0-9acf-0f3f15cc5a97" class="bulleted-list"><li style="list-style-type:square">Adecuado para sistemas que no requieren la flexibilidad extrema de metodologías ágiles puras ni el rigor de metodologías pesadas.</li></ul></li></ul><ul id="f5ea7a08-8cda-4f22-b58e-ff03f26883aa" class="bulleted-list"><li style="list-style-type:circle"><strong>Entornos donde se valora la claridad en el diseño</strong>:<ul id="6d6b20cb-f3ea-4e89-9cdc-de67806e8139" class="bulleted-list"><li style="list-style-type:square">Beneficioso en entornos donde la precisión en el diseño y la validación temprana son cruciales.</li></ul></li></ul><figure id="393da5c5-9975-4b0c-93e5-382ffe3f387a" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%2012.png"><img style="width:896px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%2012.png"/></a></figure><h2 id="58f91468-cb4b-444f-bad6-a4394811c11b" class="">CMMI</h2><p id="2873578e-174d-46e9-bb24-0314aacc68c2" class="">CMMI (Capability Maturity Model Integration) es un modelo de mejora de procesos que proporciona a las organizaciones un marco integral para desarrollar, gestionar y optimizar sus procesos y productos. Fue desarrollado inicialmente por el Software Engineering Institute (SEI) de la Universidad Carnegie Mellon y es utilizado en una variedad de industrias para mejorar la eficiencia, calidad y capacidad de gestión de proyectos y procesos.</p><h3 id="5d315e2a-4462-4abb-a11b-f653bb9918ef" class="">Objetivos de CMMI</h3><ol type="1" id="1e6847d2-bae9-4dcf-af04-233f56af8d12" class="numbered-list" start="1"><li><strong>Mejora Continua de Procesos</strong>: Proveer un enfoque estructurado para la mejora continua de procesos, asegurando que las prácticas y procedimientos evolucionen y se optimicen continuamente.</li></ol><ol type="1" id="6ac94d9d-1a8e-4acb-a7e3-a1a84171317b" class="numbered-list" start="2"><li><strong>Integración de Procesos</strong>: Facilitar la integración de diferentes funciones y procesos organizacionales, promoviendo una mayor colaboración y eficiencia.</li></ol><ol type="1" id="2ad73d2f-bd73-44e1-8d2b-4a34c53ca425" class="numbered-list" start="3"><li><strong>Establecimiento de Estándares</strong>: Proporcionar un conjunto de prácticas estándar que pueden ser utilizadas para evaluar y mejorar los procesos de desarrollo de productos y servicios.</li></ol><ol type="1" id="c8bc85da-8df4-42d6-9df6-9f12268d2bfb" class="numbered-list" start="4"><li><strong>Evaluación de la Madurez de los Procesos</strong>: Proporcionar un marco para evaluar la madurez y capacidad de los procesos organizacionales.</li></ol><h3 id="097fa2d5-37fd-48f2-be82-ffc566e6ca07" class="">Niveles de Madurez en CMMI</h3><p id="0d87e34d-c7f7-476c-abfc-baee0b764024" class="">CMMI está organizado en cinco niveles de madurez, cada uno representando un grado de capacidad y efectividad en la gestión de procesos:</p><ol type="1" id="385d7009-47e5-490b-905f-9626ece272fd" class="numbered-list" start="1"><li><strong>Nivel 1: Inicial</strong>:<ul id="e8c940f7-bcec-406b-94a0-52e42b2771ec" class="bulleted-list"><li style="list-style-type:disc">Los procesos son impredecibles y reactivos. El éxito depende en gran medida de las habilidades y esfuerzos individuales, no de procesos establecidos.</li></ul></li></ol><ol type="1" id="1e73bdac-793a-4544-be17-e8d32fe68dda" class="numbered-list" start="2"><li><strong>Nivel 2: Gestionado</strong>:<ul id="8b592a4c-0f89-442a-a7ae-b3f3da8b25f7" class="bulleted-list"><li style="list-style-type:disc">Los procesos están planeados, ejecutados, medidos y controlados. Se empieza a gestionar proyectos utilizando prácticas de gestión de proyectos.</li></ul></li></ol><ol type="1" id="f8131907-d1c8-47de-a68a-0af8c794f103" class="numbered-list" start="3"><li><strong>Nivel 3: Definido</strong>:<ul id="2305ad4e-ca0b-4bb1-93d8-364cb40ab9b0" class="bulleted-list"><li style="list-style-type:disc">Los procesos están bien caracterizados y entendidos, y se describen en estándares, procedimientos, herramientas y métodos.</li></ul></li></ol><ol type="1" id="11900f8f-e4e4-4461-ad76-c1cfff709741" class="numbered-list" start="4"><li><strong>Nivel 4: Gestionado Cuantitativamente</strong>:<ul id="3c85ccc3-a4d1-47f8-9560-daaa2f5955c1" class="bulleted-list"><li style="list-style-type:disc">Las organizaciones establecen metas cuantitativas de calidad y desempeño para los procesos, que se gestionan usando datos precisos.</li></ul></li></ol><ol type="1" id="36c87afc-9ff2-4bad-b055-6339ac945b57" class="numbered-list" start="5"><li><strong>Nivel 5: Optimización</strong>:<ul id="394f7763-271d-4451-a660-3af345c73fb0" class="bulleted-list"><li style="list-style-type:disc">El enfoque está en la mejora continua a través de la identificación de debilidades del proceso y la implementación de mejoras innovadoras y preventivas.</li></ul></li></ol><h3 id="3863702a-dd52-42eb-b1ca-a52d9d774a40" class="">Áreas de Proceso en CMMI</h3><p id="71e8afd9-94fb-435e-a25d-8a6cbefb8d72" class="">CMMI abarca diversas áreas de proceso que están agrupadas en las siguientes categorías:</p><ol type="1" id="70df073b-f612-4046-83ac-b8f301b42b3c" class="numbered-list" start="1"><li><strong>Gestión de Proyectos</strong>:<ul id="f6158965-98a2-4c05-8537-c868b91979f9" class="bulleted-list"><li style="list-style-type:disc">Incluye planificación de proyectos, gestión de requisitos, gestión de riesgos y gestión de la calidad, entre otros.</li></ul></li></ol><ol type="1" id="25bd9889-b149-4725-9e37-1a12b6ab1dd1" class="numbered-list" start="2"><li><strong>Gestión de Procesos</strong>:<ul id="56756c43-6109-41b3-a844-c5a702e66804" class="bulleted-list"><li style="list-style-type:disc">Incluye el desarrollo de procesos organizacionales, gestión de la calidad organizacional y gestión de la mejora de procesos.</li></ul></li></ol><ol type="1" id="93e2dfd6-b978-4343-92e1-eff283935b31" class="numbered-list" start="3"><li><strong>Ingeniería</strong>:<ul id="f3007566-59b0-4d76-83d1-f9f22718a254" class="bulleted-list"><li style="list-style-type:disc">Abarca el desarrollo de requisitos, solución técnica, integración del producto y verificación y validación.</li></ul></li></ol><ol type="1" id="cb5d45dc-7f1b-4d4e-925a-92ed2da70103" class="numbered-list" start="4"><li><strong>Apoyo</strong>:<ul id="74c608b2-b856-4d6c-9665-52b5e6a2db9b" class="bulleted-list"><li style="list-style-type:disc">Comprende la gestión de la configuración, garantía de calidad del proceso y producto, y la gestión del conocimiento organizacional.</li></ul></li></ol><h3 id="84da8306-dfa6-4977-bd4a-cc98eda5258e" class="">Beneficios de Implementar CMMI</h3><ol type="1" id="23c985b2-ef2c-4de3-a7c7-60ab0415c37c" class="numbered-list" start="1"><li><strong>Mejora de la Calidad del Producto</strong>:<ul id="74c433b5-9e7f-4748-a67e-9fb31a92e39a" class="bulleted-list"><li style="list-style-type:disc">La implementación de CMMI puede llevar a productos y servicios de mayor calidad, debido a la estandarización y optimización de procesos.</li></ul></li></ol><ol type="1" id="3ebd3bf0-f12d-4fc7-a12b-db2d4d713e76" class="numbered-list" start="2"><li><strong>Mayor Eficiencia</strong>:<ul id="6c1b1a6d-31fe-4705-ad7c-270d25436a83" class="bulleted-list"><li style="list-style-type:disc">La integración y gestión efectiva de procesos pueden resultar en una mayor eficiencia operativa, reduciendo costos y tiempo de desarrollo.</li></ul></li></ol><ol type="1" id="f2a7105a-3df0-48f2-8038-817e65f310af" class="numbered-list" start="3"><li><strong>Reducción de Riesgos</strong>:<ul id="7c55edfb-adc9-44cf-9677-0a29989322ee" class="bulleted-list"><li style="list-style-type:disc">La identificación y gestión de riesgos se mejoran, haciendo los proyectos más predecibles y controlables.</li></ul></li></ol><ol type="1" id="af781bd2-2db4-4d58-86a5-2c4ee6acad12" class="numbered-list" start="4"><li><strong>Mejora Continua</strong>:<ul id="8055d8e7-e801-456c-9eb2-865b03e5e73c" class="bulleted-list"><li style="list-style-type:disc">CMMI fomenta una cultura de mejora continua, asegurando que la organización evolucione y mejore sus prácticas constantemente.</li></ul></li></ol><h3 id="5181d351-ab28-4f49-bcec-690b7d174654" class="">Implementación de CMMI</h3><p id="825bcaff-04af-4ff9-9a67-ec3cd4e8f769" class="">La implementación de CMMI en una organización generalmente sigue estos pasos:</p><ol type="1" id="e5428ec5-3f93-4208-840d-21469d7807ac" class="numbered-list" start="1"><li><strong>Evaluación Inicial</strong>:<ul id="a4bd9b56-64b0-44c1-a532-b95aa93b314b" class="bulleted-list"><li style="list-style-type:disc">Realizar una evaluación inicial de los procesos existentes para entender el nivel de madurez actual.</li></ul></li></ol><ol type="1" id="0ca1a31e-7878-4e3f-bdb2-c47289b20139" class="numbered-list" start="2"><li><strong>Planificación</strong>:<ul id="53942be6-2814-425f-8106-4cf37c4768ab" class="bulleted-list"><li style="list-style-type:disc">Desarrollar un plan de acción para implementar las prácticas de CMMI que aborden las áreas de mejora identificadas.</li></ul></li></ol><ol type="1" id="66631bdb-2ab1-425f-9046-d0009ed13ad8" class="numbered-list" start="3"><li><strong>Capacitación</strong>:<ul id="f81103a1-3863-4e63-bc26-36e45b52e84d" class="bulleted-list"><li style="list-style-type:disc">Capacitar al personal en los principios y prácticas de CMMI para asegurar una implementación eficaz.</li></ul></li></ol><ol type="1" id="0a65ccc0-fda2-49bb-8b4f-68401daddc7d" class="numbered-list" start="4"><li><strong>Implementación</strong>:<ul id="68a25c7f-2b52-4bf9-9e9d-42ec85be263d" class="bulleted-list"><li style="list-style-type:disc">Implementar las prácticas y procedimientos de CMMI, integrándolos en los procesos de la organización.</li></ul></li></ol><ol type="1" id="db390d1e-dbc0-4461-9d72-9af5a66eda7f" class="numbered-list" start="5"><li><strong>Monitoreo y Evaluación</strong>:<ul id="f06a8d46-85da-4e2f-8446-753523c6f3a5" class="bulleted-list"><li style="list-style-type:disc">Monitorear y evaluar continuamente la implementación para asegurarse de que las mejoras de procesos se mantengan y evolucionen.</li></ul></li></ol><h3 id="1c63c050-757d-42c6-b54e-a9d2948391d9" class="">Certificación y Evaluación CMMI</h3><p id="cdc7d5e8-b4a5-4091-bea9-8908f0db3474" class="">Las organizaciones pueden ser evaluadas y certificadas en su nivel de madurez CMMI mediante una evaluación oficial, conocida como SCAMPI (Standard CMMI Appraisal Method for Process Improvement). Esta evaluación es realizada por evaluadores acreditados y proporciona una medida objetiva del nivel de madurez de los procesos de la organización.</p><figure id="ba4d1b25-8de3-4d93-b2d2-5096087dcf76" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%2013.png"><img style="width:1280px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/Untitled%2013.png"/></a></figure></li></ul><figure id="e628000f-a467-45a6-88a1-1dff1cdb5c22" class="image"><a href="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/6941a4c8-bf7d-46fb-8bd2-da45ef258e84.jpeg"><img style="width:708px" src="EXTRA%20-%20ordinario%20a%20procesos%20para%20la%20ingenieri%CC%81a%20d%209b71b0dfa4be4958a701931d6293befe/6941a4c8-bf7d-46fb-8bd2-da45ef258e84.jpeg"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
